@@ -70,27 +70,27 @@ fn solve_captcha(captcha: &str, rotate_amount: usize) -> usize {
         .sum()
 }
 
-pub fn solve_part_1(captcha: &str) -> usize {
+pub fn solve_part_one(captcha: &str) -> usize {
     solve_captcha(captcha, 1)
 }
 
-pub fn solve_part_2(captcha: &str) -> usize {
+pub fn solve_part_two(captcha: &str) -> usize {
     solve_captcha(captcha, captcha.len() / 2)
 }
 
 #[test]
 fn examples_part_one() {
-    assert_eq!(3, solve_part_1("1122"));
-    assert_eq!(4, solve_part_1("1111"));
-    assert_eq!(0, solve_part_1("1234"));
-    assert_eq!(9, solve_part_1("91212129"));
+    assert_eq!(3, solve_part_one("1122"));
+    assert_eq!(4, solve_part_one("1111"));
+    assert_eq!(0, solve_part_one("1234"));
+    assert_eq!(9, solve_part_one("91212129"));
 }
 
 #[test]
 fn examples_part_two() {
-    assert_eq!(6, solve_part_2("1212"));
-    assert_eq!(0, solve_part_2("1221"));
-    assert_eq!(4, solve_part_2("123425"));
-    assert_eq!(12, solve_part_2("123123"));
-    assert_eq!(4, solve_part_2("12131415"));
+    assert_eq!(6, solve_part_two("1212"));
+    assert_eq!(0, solve_part_two("1221"));
+    assert_eq!(4, solve_part_two("123425"));
+    assert_eq!(12, solve_part_two("123123"));
+    assert_eq!(4, solve_part_two("12131415"));
 }
