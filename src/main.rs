@@ -21,7 +21,6 @@ fn aoc2017() {
     );
 }
 
-
 fn aoc2018() {
     println!("Advent of Code 2018");
 

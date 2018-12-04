@@ -47,20 +47,20 @@
 /// In this example, the sum of the results would be 4 + 3 + 2 = 9.
 
 fn calculate_checksum<F>(spreadsheet: &str, row_checksum_function: F) -> i32
-    where F: Fn(&Vec<i32>) -> i32 {
-    spreadsheet.lines()
+where
+    F: Fn(&Vec<i32>) -> i32,
+{
+    spreadsheet
+        .lines()
         .map(|row| split_row(row))
         .map(|row_vec| row_checksum_function(&row_vec))
-//        .inspect(|z| println!("row chksum: {}", z))
+        //        .inspect(|z| println!("row chksum: {}", z))
         .sum()
 }
 
 fn split_row(row: &str) -> Vec<i32> {
-    row.split(",")
-        .map(|c| c.parse::<i32>().unwrap())
-        .collect()
+    row.split(",").map(|c| c.parse::<i32>().unwrap()).collect()
 }
-
 
 pub fn solve_part_one(spreadsheet: &str) -> i32 {
     calculate_checksum(spreadsheet, |row: &Vec<i32>| {
@@ -77,20 +77,23 @@ pub fn solve_part_two(spreadsheet: &str) -> i32 {
 
         while search_row.len() > 0 {
             let number_1 = search_row.pop().unwrap();
-            let number_2 = search_row.iter()
-//                .inspect(|c| println!("{} % {} == {}", c, number_1, number_1 % *c ))
+            let number_2 = search_row
+                .iter()
+                //                .inspect(|c| println!("{} % {} == {}", c, number_1, number_1 % *c ))
                 .filter(|c| number_1 % *c == 0)
                 .next();
             match number_2 {
                 Some(n) => return number_1 / n,
-                _ => {},
+                _ => {}
             }
         }
-        panic!("Found row without two numbers that evenly divide? {:?}", row)
+        panic!(
+            "Found row without two numbers that evenly divide? {:?}",
+            row
+        )
     };
     calculate_checksum(spreadsheet, row_checksum)
 }
-
 
 #[test]
 fn examples_part_one() {

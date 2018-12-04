@@ -72,7 +72,8 @@ use std::collections::HashSet;
 ///     +7, +7, -2, -7, -4 first reaches 14 twice.
 
 fn parse_input(frequency_input: &str) -> Vec<isize> {
-    frequency_input.split(' ')
+    frequency_input
+        .split(' ')
         .filter(|c| !c.trim().is_empty())
         .map(|c| c.trim().parse::<isize>().unwrap())
         .collect()
@@ -91,7 +92,7 @@ pub fn solve_part_two(frequency_input: &str) -> isize {
         for f in parse_input(frequency_input).iter() {
             current_frequency += f;
             if seen_frequencies.contains(&current_frequency) {
-              return current_frequency;
+                return current_frequency;
             } else {
                 seen_frequencies.insert(current_frequency);
             }
@@ -108,7 +109,6 @@ fn examples_part_one() {
     assert_eq!(0, solve_part_one("+1 +1 -2"));
     assert_eq!(-6, solve_part_one("-1 -2 -3"));
 }
-
 
 #[test]
 fn examples_part_two() {
