@@ -59,7 +59,7 @@ where
 }
 
 fn split_row(row: &str) -> Vec<i32> {
-    row.split(",").map(|c| c.parse::<i32>().unwrap()).collect()
+    row.split(',').map(|c| c.parse::<i32>().unwrap()).collect()
 }
 
 pub fn solve_part_one(spreadsheet: &str) -> i32 {
@@ -75,16 +75,15 @@ pub fn solve_part_two(spreadsheet: &str) -> i32 {
         let mut search_row = row.clone();
         search_row.sort();
 
-        while search_row.len() > 0 {
+        while !search_row.is_empty() {
             let number_1 = search_row.pop().unwrap();
             let number_2 = search_row
                 .iter()
                 //                .inspect(|c| println!("{} % {} == {}", c, number_1, number_1 % *c ))
-                .filter(|c| number_1 % *c == 0)
-                .next();
-            match number_2 {
-                Some(n) => return number_1 / n,
-                _ => {}
+                .find(|c| number_1 % *c == 0);
+
+            if let Some(n) = number_2 {
+                return number_1 / n;
             }
         }
         panic!(

@@ -88,7 +88,7 @@ pub fn solve_part_two(frequency_input: &str) -> isize {
     let mut current_frequency = 0;
     seen_frequencies.insert(current_frequency);
 
-    while true {
+    loop {
         for f in parse_input(frequency_input).iter() {
             current_frequency += f;
             if seen_frequencies.contains(&current_frequency) {
@@ -98,8 +98,6 @@ pub fn solve_part_two(frequency_input: &str) -> isize {
             }
         }
     }
-
-    panic!("Didn't find anything?");
 }
 
 #[test]
