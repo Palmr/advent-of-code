@@ -29,4 +29,10 @@ fn aoc2018() {
         aoc2018::day1::solve_part_one(aoc2018::DAY1_INPUT),
         aoc2018::day1::solve_part_two(aoc2018::DAY1_INPUT),
     );
+
+    println!(
+        "\tDay 2: Part One={}, Part Two={}",
+        aoc2018::day2::solve_part_one(aoc2018::DAY2_INPUT),
+        aoc2018::day2::solve_part_two(aoc2018::DAY2_INPUT),
+    );
 }
