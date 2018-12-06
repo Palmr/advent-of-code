@@ -1,3 +1,5 @@
+extern crate regex;
+
 mod aoc2017;
 mod aoc2018;
 mod util;
@@ -35,5 +37,11 @@ fn aoc2018() {
         "\tDay 2: Part One={}, Part Two={}",
         aoc2018::day2::solve_part_one(&util::read_file_input("resources/2018/day2.txt")),
         aoc2018::day2::solve_part_two(&util::read_file_input("resources/2018/day2.txt")),
+    );
+
+    println!(
+        "\tDay 3: Part One={}, Part Two={}",
+        aoc2018::day3::solve_part_one(&util::read_file_input("resources/2018/day3.txt")),
+        aoc2018::day3::solve_part_two(&util::read_file_input("resources/2018/day3.txt")),
     );
 }

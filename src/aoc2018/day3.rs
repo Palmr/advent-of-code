@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use regex::Regex;
 
 /// --- Day 3: No Matter How You Slice It ---
 ///
@@ -59,6 +59,7 @@ use std::collections::HashMap;
 /// If the Elves all proceed with their own plans, none of them will have enough fabric. How many
 /// square inches of fabric are within two or more claims?
 
+#[derive(Debug, Eq, PartialEq)]
 struct Claim {
     id: usize,
     x: usize,
@@ -67,9 +68,61 @@ struct Claim {
     h: usize,
 }
 
-pub fn solve_part_one(input: &str) -> usize {
-    0
+fn parse_input(input: &[String]) -> Vec<Claim> {
+    let re = Regex::new(r"#([0-9]+) @ ([0-9]+),([0-9]+): ([0-9]+)x([0-9]+)").unwrap();
+
+    input.iter()
+//        .inspect(|l| println!("To parse: {}", l))
+        .map(|l| re.captures(l).unwrap())
+        .map(|c| Claim {
+            id: c.get(1).map_or(0, |m| m.as_str().parse().unwrap()),
+            x: c.get(2).map_or(0, |m| m.as_str().parse().unwrap()),
+            y: c.get(3).map_or(0, |m| m.as_str().parse().unwrap()),
+            w: c.get(4).map_or(0, |m| m.as_str().parse().unwrap()),
+            h: c.get(5).map_or(0, |m| m.as_str().parse().unwrap()),
+        })
+        .collect()
 }
 
 #[test]
-fn examples_part_one() {}
+fn test_parse_input() {
+    let input = &[
+        "#1 @ 1,3: 4x4".to_string(),
+        "#2 @ 3,1: 4x4".to_string(),
+    ];
+    let expected_claims = vec![
+        Claim {
+            id: 1,
+            x: 1,
+            y: 3,
+            w: 4,
+            h: 4,
+        },
+        Claim {
+            id: 2,
+            x: 3,
+            y: 1,
+            w: 4,
+            h: 4,
+        },
+    ];
+    assert_eq!(expected_claims, parse_input(input));
+}
+
+pub fn solve_part_one(input: &[String]) -> usize {
+    let _claims = parse_input(input);
+
+    0
+}
+
+pub fn solve_part_two(_input: &[String]) -> String {
+    "TODO".to_string()
+}
+
+#[test]
+fn examples_part_one() {
+    let input = &["#1 @ 1,3: 4x4".to_string(),
+        "#2 @ 3,1: 4x4".to_string(),
+        "#3 @ 5,5: 2x2".to_string()];
+    assert_eq!(4, solve_part_one(input))
+}
