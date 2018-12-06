@@ -1,4 +1,5 @@
 use regex::Regex;
+use std::collections::HashSet;
 
 /// --- Day 3: No Matter How You Slice It ---
 ///
@@ -110,9 +111,24 @@ fn test_parse_input() {
 }
 
 pub fn solve_part_one(input: &[String]) -> usize {
-    let _claims = parse_input(input);
+    let claims = parse_input(input);
+    let mut inches_coordinates_claimed = HashSet::new();
+    let mut overlap_coordinates = HashSet::new();
 
-    0
+    claims.iter()
+        .for_each(|c| {
+            for x in c.x..c.x + c.w {
+                for y in c.y..c.y + c.h {
+                    if inches_coordinates_claimed.contains(&(x, y)) {
+                        overlap_coordinates.insert((x, y));
+                    } else {
+                        inches_coordinates_claimed.insert((x, y));
+                    }
+                }
+            }
+        });
+
+    overlap_coordinates.len()
 }
 
 pub fn solve_part_two(_input: &[String]) -> String {
