@@ -1,0 +1,3 @@
+This file exists solely for the util.rs test of read_file_input
+
+It should ignore blank lines and say this file has 2 lines in it

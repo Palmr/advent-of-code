@@ -70,11 +70,10 @@ struct ChecksumPart {
     threes: usize,
 }
 
-pub fn solve_part_one(input: &str) -> usize {
+pub fn solve_part_one(input: &[String]) -> usize {
     let checksum_parts: ChecksumPart = input
-        .lines()
-        //.inspect(|line| println!("Line: {}", line))
-        .map(|line| line.trim().chars())
+        .iter()
+        .map(|line| line.chars())
         //.inspect(|chars| println!("{:?}", chars))
         .map(|chars| {
             let map: Vec<(char, usize)> = chars
@@ -102,11 +101,9 @@ pub fn solve_part_one(input: &str) -> usize {
     checksum_parts.twos * checksum_parts.threes
 }
 
-pub fn solve_part_two(input: &str) -> String {
-    let lines: Vec<&str> = input.lines().map(|line| line.trim()).collect();
-    let line_slice = lines.as_slice();
-    for (i, line) in line_slice.iter().enumerate() {
-        for counterpart in line_slice.iter().skip(i + 1) {
+pub fn solve_part_two(input: &[String]) -> String {
+    for (i, line) in input.iter().enumerate() {
+        for counterpart in input.iter().skip(i + 1) {
             //            println!("Comparing: {} - {}", line, counterpart);
             let matched_chars = compare_box_ids(line, counterpart);
             if matched_chars.len() == line.len() - 1 {
@@ -138,24 +135,28 @@ fn compare_box_ids(str1: &str, str2: &str) -> String {
 
 #[test]
 fn examples_part_one() {
-    let input = "abcdef
-bababc
-abbcde
-abcccd
-aabcdd
-abcdee
-ababab";
+    let input = &[
+        "abcdef".to_string(),
+        "bababc".to_string(),
+        "abbcde".to_string(),
+        "abcccd".to_string(),
+        "aabcdd".to_string(),
+        "abcdee".to_string(),
+        "ababab".to_string(),
+    ];
     assert_eq!(12, solve_part_one(input));
 }
 
 #[test]
 fn examples_part_two() {
-    let input = "abcde
-fghij
-klmno
-pqrst
-fguij
-axcye
-wvxyz";
+    let input = &[
+        "abcde".to_string(),
+        "fghij".to_string(),
+        "klmno".to_string(),
+        "pqrst".to_string(),
+        "fguij".to_string(),
+        "axcye".to_string(),
+        "wvxyz".to_string(),
+    ];
     assert_eq!("fgij", solve_part_two(input));
 }

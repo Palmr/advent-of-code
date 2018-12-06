@@ -1,5 +1,6 @@
 mod aoc2017;
 mod aoc2018;
+mod util;
 
 fn main() {
     aoc2017();
@@ -26,13 +27,13 @@ fn aoc2018() {
 
     println!(
         "\tDay 1: Part One={}, Part Two={}",
-        aoc2018::day1::solve_part_one(aoc2018::DAY1_INPUT),
-        aoc2018::day1::solve_part_two(aoc2018::DAY1_INPUT),
+        aoc2018::day1::solve_part_one(&util::read_file_input("resources/2018/day1.txt")),
+        aoc2018::day1::solve_part_two(&util::read_file_input("resources/2018/day1.txt")),
     );
 
     println!(
         "\tDay 2: Part One={}, Part Two={}",
-        aoc2018::day2::solve_part_one(aoc2018::DAY2_INPUT),
-        aoc2018::day2::solve_part_two(aoc2018::DAY2_INPUT),
+        aoc2018::day2::solve_part_one(&util::read_file_input("resources/2018/day2.txt")),
+        aoc2018::day2::solve_part_two(&util::read_file_input("resources/2018/day2.txt")),
     );
 }

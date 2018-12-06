@@ -71,19 +71,18 @@ use std::collections::HashSet;
 ///     -6, +3, +8, +5, -6 first reaches 5 twice.
 ///     +7, +7, -2, -7, -4 first reaches 14 twice.
 
-fn parse_input(frequency_input: &str) -> Vec<isize> {
+fn parse_input(frequency_input: &[String]) -> Vec<isize> {
     frequency_input
-        .split(' ')
-        .filter(|c| !c.trim().is_empty())
+        .iter()
         .map(|c| c.trim().parse::<isize>().unwrap())
         .collect()
 }
 
-pub fn solve_part_one(frequency_input: &str) -> isize {
+pub fn solve_part_one(frequency_input: &[String]) -> isize {
     parse_input(frequency_input).iter().sum()
 }
 
-pub fn solve_part_two(frequency_input: &str) -> isize {
+pub fn solve_part_two(frequency_input: &[String]) -> isize {
     let mut seen_frequencies = HashSet::new();
     let mut current_frequency = 0;
     seen_frequencies.insert(current_frequency);
@@ -102,17 +101,69 @@ pub fn solve_part_two(frequency_input: &str) -> isize {
 
 #[test]
 fn examples_part_one() {
-    assert_eq!(3, solve_part_one("+1 -2 +3 +1"));
-    assert_eq!(3, solve_part_one("+1 +1 +1"));
-    assert_eq!(0, solve_part_one("+1 +1 -2"));
-    assert_eq!(-6, solve_part_one("-1 -2 -3"));
+    assert_eq!(
+        3,
+        solve_part_one(&[
+            "+1".to_string(),
+            "-2".to_string(),
+            "+3".to_string(),
+            "+1".to_string()
+        ])
+    );
+    assert_eq!(
+        3,
+        solve_part_one(&["+1".to_string(), "+1".to_string(), "+1".to_string()])
+    );
+    assert_eq!(
+        0,
+        solve_part_one(&["+1".to_string(), "+1".to_string(), "-2".to_string()])
+    );
+    assert_eq!(
+        -6,
+        solve_part_one(&["-1".to_string(), "-2".to_string(), "-3".to_string()])
+    );
 }
 
 #[test]
 fn examples_part_two() {
-    assert_eq!(2, solve_part_two("+1 -2 +3 +1"));
-    assert_eq!(0, solve_part_two("+1 -1"));
-    assert_eq!(10, solve_part_two("+3 +3 +4 -2 -4"));
-    assert_eq!(5, solve_part_two("-6 +3 +8 +5 -6"));
-    assert_eq!(14, solve_part_two("+7 +7 -2 -7 -4"));
+    assert_eq!(
+        2,
+        solve_part_two(&[
+            "+1".to_string(),
+            "-2".to_string(),
+            "+3".to_string(),
+            "+1".to_string()
+        ])
+    );
+    assert_eq!(0, solve_part_two(&["+1".to_string(), "-1".to_string()]));
+    assert_eq!(
+        10,
+        solve_part_two(&[
+            "+3".to_string(),
+            "+3".to_string(),
+            "+4".to_string(),
+            "-2".to_string(),
+            "-4".to_string()
+        ])
+    );
+    assert_eq!(
+        5,
+        solve_part_two(&[
+            "-6".to_string(),
+            "+3".to_string(),
+            "+8".to_string(),
+            "+5".to_string(),
+            "-6".to_string()
+        ])
+    );
+    assert_eq!(
+        14,
+        solve_part_two(&[
+            "+7".to_string(),
+            "+7".to_string(),
+            "-2".to_string(),
+            "-7".to_string(),
+            "-4".to_string()
+        ])
+    );
 }
