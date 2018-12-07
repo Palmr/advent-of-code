@@ -1,5 +1,6 @@
 use regex::Regex;
 use std::collections::HashSet;
+use std::collections::HashMap;
 
 /// --- Day 3: No Matter How You Slice It ---
 ///
@@ -59,6 +60,16 @@ use std::collections::HashSet;
 ///
 /// If the Elves all proceed with their own plans, none of them will have enough fabric. How many
 /// square inches of fabric are within two or more claims?
+///
+/// --- Part Two ---
+///
+/// Amidst the chaos, you notice that exactly one claim doesn't overlap by even a single square inch
+/// of fabric with any other claim. If you can somehow draw attention to it, maybe the Elves will be
+/// able to make Santa's suit after all!
+///
+/// For example, in the claims above, only claim 3 is intact after all claims are made.
+///
+/// What is the ID of the only claim that doesn't overlap?
 
 #[derive(Debug, Eq, PartialEq)]
 struct Claim {
@@ -131,8 +142,29 @@ pub fn solve_part_one(input: &[String]) -> usize {
     overlap_coordinates.len()
 }
 
-pub fn solve_part_two(_input: &[String]) -> String {
-    "TODO".to_string()
+pub fn solve_part_two(input: &[String]) -> usize {
+    let claims = parse_input(input);
+    let mut inches_coordinates_claimed = HashMap::new();
+    let mut overlap_claim_ids = HashSet::new();
+
+    claims.iter()
+        .for_each(|c| {
+            for x in c.x..c.x + c.w {
+                for y in c.y..c.y + c.h {
+                    if inches_coordinates_claimed.contains_key(&(x, y)) {
+                        overlap_claim_ids.insert(c.id);
+                        overlap_claim_ids.insert(*inches_coordinates_claimed.get(&(x, y)).unwrap());
+                    } else {
+                        inches_coordinates_claimed.insert((x, y), c.id);
+                    }
+                }
+            }
+        });
+
+    claims.iter()
+        .map(|c| c.id)
+        .find(|id| !overlap_claim_ids.contains(id))
+        .unwrap()
 }
 
 #[test]
@@ -141,4 +173,12 @@ fn examples_part_one() {
         "#2 @ 3,1: 4x4".to_string(),
         "#3 @ 5,5: 2x2".to_string()];
     assert_eq!(4, solve_part_one(input))
+}
+
+#[test]
+fn examples_part_two() {
+    let input = &["#1 @ 1,3: 4x4".to_string(),
+        "#2 @ 3,1: 4x4".to_string(),
+        "#3 @ 5,5: 2x2".to_string()];
+    assert_eq!(3, solve_part_two(input))
 }
