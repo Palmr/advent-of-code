@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="2018 day 4 - stubbed">
-      <change afterPath="$PROJECT_DIR$/resources/2018/day4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc2018/day4.rs" afterDir="false" />
+    <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2018/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2018/day4.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day4.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="828">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -28,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/2018/day4.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="20070">
               <caret line="1115" column="43" selection-start-line="1115" selection-start-column="31" selection-end-line="1115" selection-end-column="43" />
             </state>
           </provider>
@@ -37,12 +35,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aoc2018/day4.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="99" column="71" selection-start-line="99" selection-start-column="71" selection-end-line="99" selection-end-column="71" />
-              <folding>
-                <element signature="e#8202#8203#0" expanded="true" />
-                <element signature="e#8227#8228#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="382">
+              <caret line="213" column="58" selection-start-line="213" selection-start-column="58" selection-end-line="213" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -50,7 +53,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aoc2018/day3.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
+            <state relative-caret-position="1764">
               <caret line="98" selection-start-line="98" selection-end-line="119" />
             </state>
           </provider>
@@ -60,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+              <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -95,7 +98,6 @@
         <option value="$PROJECT_DIR$/src/aoc2017/mod.rs" />
         <option value="$PROJECT_DIR$/src/2018/mod.rs" />
         <option value="$PROJECT_DIR$/src/2018/day1.rs" />
-        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/src/aoc2017/day2.rs" />
         <option value="$PROJECT_DIR$/resources/2018/test.txt" />
         <option value="$PROJECT_DIR$/src/util.rs" />
@@ -109,6 +111,7 @@
         <option value="$PROJECT_DIR$/src/aoc2018/mod.rs" />
         <option value="$PROJECT_DIR$/src/main.rs" />
         <option value="$PROJECT_DIR$/resources/2018/day4.txt" />
+        <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$PROJECT_DIR$/src/aoc2018/day4.rs" />
       </list>
     </option>
@@ -194,9 +197,9 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="cargo test" />
       <command value="cargo fmt" />
       <command value="cargo clippy" />
+      <command value="cargo test" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -211,7 +214,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.Run advent-of-code">
+  <component name="RunManager" selected="Cargo Command.Test aoc2018::day4::test_part_one">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -284,8 +287,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo Command.Run advent-of-code" />
         <item itemvalue="Cargo Command.Test aoc2018::day4::test_part_one" />
+        <item itemvalue="Cargo Command.Run advent-of-code" />
         <item itemvalue="Cargo Command.Test aoc2018::day4::test_parse_input" />
         <item itemvalue="Cargo Command.Test day4" />
         <item itemvalue="Cargo Command.Test aoc2018::day3::examples_part_two" />
@@ -401,13 +404,17 @@
       <option name="project" value="LOCAL" />
       <updated>1544182644793</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="2018 day 4 - stubbed">
+      <created>1544198961845</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1544198961845</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_aoc2018__day3__examples_part_one - 2018.12.06 at 17h 52m 28s.xml">
-      <configuration name="Test aoc2018::day3::examples_part_one" configurationId="CargoCommandRunConfiguration" />
-    </history-entry>
     <history-entry file="Test_day3 - 2018.12.06 at 17h 55m 10s.xml">
       <configuration name="Test day3" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
@@ -435,20 +442,22 @@
     <history-entry file="Test_aoc2018__day4__test_part_one - 2018.12.07 at 15h 19m 19s.xml">
       <configuration name="Test aoc2018::day4::test_part_one" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
+    <history-entry file="Test_aoc2018__day4__test_part_one - 2018.12.07 at 17h 24m 21s.xml">
+      <configuration name="Test aoc2018::day4::test_part_one" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="27" width="1920" height="1173" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23878205" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24145299" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32945737" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29651162" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29651162" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -458,6 +467,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32848838" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32945737" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -541,6 +551,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="2017 day 1" />
     <MESSAGE value="2017 day 2" />
     <MESSAGE value="2018 day 1" />
@@ -592,13 +604,6 @@
             <element signature="e#2561#2562#0" expanded="true" />
             <element signature="e#2627#2628#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
@@ -676,42 +681,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/2018/day4.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="20070">
           <caret line="1115" column="43" selection-start-line="1115" selection-start-column="31" selection-end-line="1115" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/day3.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
+        <state relative-caret-position="1764">
           <caret line="98" selection-start-line="98" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitlab-ci.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="32" lean-forward="true" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/day4.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="99" column="71" selection-start-line="99" selection-start-column="71" selection-end-line="99" selection-end-column="71" />
-          <folding>
-            <element signature="e#8202#8203#0" expanded="true" />
-            <element signature="e#8227#8228#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="382">
+          <caret line="213" column="58" selection-start-line="213" selection-start-column="58" selection-end-line="213" selection-end-column="58" />
         </state>
       </provider>
     </entry>
