@@ -44,4 +44,10 @@ fn aoc2018() {
         aoc2018::day3::solve_part_one(&util::read_file_input("resources/2018/day3.txt")),
         aoc2018::day3::solve_part_two(&util::read_file_input("resources/2018/day3.txt")),
     );
+
+    println!(
+        "\tDay 4: Part One={}, Part Two={}",
+        aoc2018::day4::solve_part_one(&util::read_file_input("resources/2018/day4.txt")),
+        aoc2018::day4::solve_part_two(&util::read_file_input("resources/2018/day4.txt")),
+    );
 }
