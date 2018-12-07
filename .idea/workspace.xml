@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aoc2018/day3.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day3.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="774">
-              <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+            <state relative-caret-position="562">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
         </entry>
@@ -25,8 +24,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/aoc2018/day3.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="832">
-              <caret line="163" column="83" selection-start-line="163" selection-start-column="83" selection-end-line="163" selection-end-column="83" />
+            <state relative-caret-position="385">
+              <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -163,7 +171,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.Run advent-of-code">
+  <component name="RunManager" selected="Cargo Command.Test aoc2018::day3::examples_part_two">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -236,8 +244,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo Command.Run advent-of-code" />
         <item itemvalue="Cargo Command.Test aoc2018::day3::examples_part_two" />
+        <item itemvalue="Cargo Command.Run advent-of-code" />
         <item itemvalue="Cargo Command.Test day3" />
         <item itemvalue="Cargo Command.Test aoc2018::day3::examples_part_one" />
         <item itemvalue="Cargo Command.Test aoc2018::day3::test_parsing_regex" />
@@ -350,9 +358,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_day3 - 2018.12.06 at 17h 29m 19s.xml">
-      <configuration name="Test day3" configurationId="CargoCommandRunConfiguration" />
-    </history-entry>
     <history-entry file="Test_aoc2018__day3__test_parsing_regex - 2018.12.06 at 17h 35m 04s.xml">
       <configuration name="Test aoc2018::day3::test_parsing_regex" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
@@ -380,6 +385,9 @@
     <history-entry file="Test_day3 - 2018.12.06 at 17h 55m 10s.xml">
       <configuration name="Test day3" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
+    <history-entry file="Test_aoc2018__day3__examples_part_two - 2018.12.07 at 11h 49m 27s.xml">
+      <configuration name="Test aoc2018::day3::examples_part_two" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="27" width="1920" height="1173" extended-state="6" />
@@ -400,7 +408,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32945737" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32848838" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32848838" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -600,7 +608,7 @@
     <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
@@ -627,15 +635,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="774">
-          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        <state relative-caret-position="562">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/day3.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="163" column="83" selection-start-line="163" selection-start-column="83" selection-end-line="163" selection-end-column="83" />
+        <state relative-caret-position="385">
+          <caret line="155" column="9" lean-forward="true" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="9" />
         </state>
       </provider>
     </entry>

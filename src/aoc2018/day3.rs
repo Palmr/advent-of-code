@@ -1,6 +1,6 @@
 use regex::Regex;
-use std::collections::HashSet;
 use std::collections::HashMap;
+use std::collections::HashSet;
 
 /// --- Day 3: No Matter How You Slice It ---
 ///
@@ -83,8 +83,9 @@ struct Claim {
 fn parse_input(input: &[String]) -> Vec<Claim> {
     let re = Regex::new(r"#([0-9]+) @ ([0-9]+),([0-9]+): ([0-9]+)x([0-9]+)").unwrap();
 
-    input.iter()
-//        .inspect(|l| println!("To parse: {}", l))
+    input
+        .iter()
+        //        .inspect(|l| println!("To parse: {}", l))
         .map(|l| re.captures(l).unwrap())
         .map(|c| Claim {
             id: c.get(1).map_or(0, |m| m.as_str().parse().unwrap()),
@@ -92,16 +93,12 @@ fn parse_input(input: &[String]) -> Vec<Claim> {
             y: c.get(3).map_or(0, |m| m.as_str().parse().unwrap()),
             w: c.get(4).map_or(0, |m| m.as_str().parse().unwrap()),
             h: c.get(5).map_or(0, |m| m.as_str().parse().unwrap()),
-        })
-        .collect()
+        }).collect()
 }
 
 #[test]
 fn test_parse_input() {
-    let input = &[
-        "#1 @ 1,3: 4x4".to_string(),
-        "#2 @ 3,1: 4x4".to_string(),
-    ];
+    let input = &["#1 @ 1,3: 4x4".to_string(), "#2 @ 3,1: 4x4".to_string()];
     let expected_claims = vec![
         Claim {
             id: 1,
@@ -126,42 +123,41 @@ pub fn solve_part_one(input: &[String]) -> usize {
     let mut inches_coordinates_claimed = HashSet::new();
     let mut overlap_coordinates = HashSet::new();
 
-    claims.iter()
-        .for_each(|c| {
-            for x in c.x..c.x + c.w {
-                for y in c.y..c.y + c.h {
-                    if inches_coordinates_claimed.contains(&(x, y)) {
-                        overlap_coordinates.insert((x, y));
-                    } else {
-                        inches_coordinates_claimed.insert((x, y));
-                    }
+    claims.iter().for_each(|c| {
+        for x in c.x..c.x + c.w {
+            for y in c.y..c.y + c.h {
+                if inches_coordinates_claimed.contains(&(x, y)) {
+                    overlap_coordinates.insert((x, y));
+                } else {
+                    inches_coordinates_claimed.insert((x, y));
                 }
             }
-        });
+        }
+    });
 
     overlap_coordinates.len()
 }
 
 pub fn solve_part_two(input: &[String]) -> usize {
     let claims = parse_input(input);
-    let mut inches_coordinates_claimed = HashMap::new();
+    let mut inches_coordinates_claimed: HashMap<(usize, usize), usize> = HashMap::new();
     let mut overlap_claim_ids = HashSet::new();
 
-    claims.iter()
-        .for_each(|c| {
-            for x in c.x..c.x + c.w {
-                for y in c.y..c.y + c.h {
-                    if inches_coordinates_claimed.contains_key(&(x, y)) {
+    claims.iter().for_each(|c| {
+        for x in c.x..c.x + c.w {
+            for y in c.y..c.y + c.h {
+                inches_coordinates_claimed
+                    .entry((x, y))
+                    .and_modify(|existing_id| {
                         overlap_claim_ids.insert(c.id);
-                        overlap_claim_ids.insert(*inches_coordinates_claimed.get(&(x, y)).unwrap());
-                    } else {
-                        inches_coordinates_claimed.insert((x, y), c.id);
-                    }
-                }
+                        overlap_claim_ids.insert(*existing_id);
+                    }).or_insert(c.id);
             }
-        });
+        }
+    });
 
-    claims.iter()
+    claims
+        .iter()
         .map(|c| c.id)
         .find(|id| !overlap_claim_ids.contains(id))
         .unwrap()
@@ -169,16 +165,20 @@ pub fn solve_part_two(input: &[String]) -> usize {
 
 #[test]
 fn examples_part_one() {
-    let input = &["#1 @ 1,3: 4x4".to_string(),
+    let input = &[
+        "#1 @ 1,3: 4x4".to_string(),
         "#2 @ 3,1: 4x4".to_string(),
-        "#3 @ 5,5: 2x2".to_string()];
+        "#3 @ 5,5: 2x2".to_string(),
+    ];
     assert_eq!(4, solve_part_one(input))
 }
 
 #[test]
 fn examples_part_two() {
-    let input = &["#1 @ 1,3: 4x4".to_string(),
+    let input = &[
+        "#1 @ 1,3: 4x4".to_string(),
         "#2 @ 3,1: 4x4".to_string(),
-        "#3 @ 5,5: 2x2".to_string()];
+        "#3 @ 5,5: 2x2".to_string(),
+    ];
     assert_eq!(3, solve_part_two(input))
 }
