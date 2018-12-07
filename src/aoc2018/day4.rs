@@ -119,13 +119,15 @@ fn parse_input(input: &[String]) -> Vec<GuardLog> {
                         "falls asleep" => GuardSate::FallsAsleep,
                         "wakes up" => GuardSate::WakesUp,
                         x => panic!("Invalid state: {}", x),
-                    }).unwrap(),
+                    })
+                    .unwrap(),
                 month: c.get(1).map_or(0, |m| m.as_str().parse().unwrap()),
                 day: c.get(2).map_or(0, |m| m.as_str().parse().unwrap()),
                 hour: c.get(3).map_or(0, |m| m.as_str().parse().unwrap()),
                 minute: c.get(4).map_or(0, |m| m.as_str().parse().unwrap()),
             }
-        }).collect()
+        })
+        .collect()
 }
 
 #[test]
@@ -220,6 +222,6 @@ fn test_part_one() {
     ];
 
     // TODO - enable correct assert when implemented
-//    assert_eq!(240, solve_part_one(input))
+    //    assert_eq!(240, solve_part_one(input))
     assert_eq!(0, solve_part_one(input))
 }

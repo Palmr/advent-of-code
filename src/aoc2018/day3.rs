@@ -93,7 +93,8 @@ fn parse_input(input: &[String]) -> Vec<Claim> {
             y: c.get(3).map_or(0, |m| m.as_str().parse().unwrap()),
             w: c.get(4).map_or(0, |m| m.as_str().parse().unwrap()),
             h: c.get(5).map_or(0, |m| m.as_str().parse().unwrap()),
-        }).collect()
+        })
+        .collect()
 }
 
 #[test]
@@ -151,7 +152,8 @@ pub fn solve_part_two(input: &[String]) -> usize {
                     .and_modify(|existing_id| {
                         overlap_claim_ids.insert(c.id);
                         overlap_claim_ids.insert(*existing_id);
-                    }).or_insert(c.id);
+                    })
+                    .or_insert(c.id);
             }
         }
     });

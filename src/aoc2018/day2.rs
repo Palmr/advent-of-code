@@ -80,7 +80,8 @@ pub fn solve_part_one(input: &[String]) -> usize {
                 .fold(HashMap::<char, usize>::new(), |mut m, c| {
                     *m.entry(c).or_insert(0) += 1;
                     m
-                }).into_iter()
+                })
+                .into_iter()
                 .filter(|(_, v)| *v == 2 || *v == 3)
                 //.inspect(|e| println!("Entry: {:?}", e))
                 .collect();
