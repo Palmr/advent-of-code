@@ -319,8 +319,55 @@ pub fn solve_part_one(input: &[String]) -> usize {
     sleepiest_guard_id * sleepiest_minute
 }
 
-pub fn solve_part_two(_input: &[String]) -> String {
-    "TODO".to_string()
+pub fn solve_part_two(input: &[String]) -> usize {
+    let guard_logs = parse_input(input);
+
+    // For each guard map their minute sleep frequency
+    let mut guard_minute_sleep_frequency: HashMap<usize, HashMap<usize, usize>> = HashMap::new();
+    let mut started_sleeping_minute = None;
+    guard_logs.iter().for_each(|gl| match gl.state {
+        GuardSate::BeginShift => started_sleeping_minute = None,
+        GuardSate::FallsAsleep => started_sleeping_minute = Some(gl.minute),
+        GuardSate::WakesUp => {
+            if started_sleeping_minute == None {
+                panic!(
+                    "Log waking up for guard who fell asleep at unknown time? {:?}",
+                    gl
+                );
+            }
+            let mut minute_slept_map = guard_minute_sleep_frequency
+                .entry(gl.guard_id.unwrap())
+                .or_insert_with(HashMap::new);
+            for m in started_sleeping_minute.unwrap()..gl.minute {
+                *minute_slept_map.entry(m).or_insert(0) += 1;
+            }
+        }
+    });
+
+    // For each guard find the minute with the highest frequency
+    // For all those frequencies, find the highest
+    let thing: (usize, (&usize, &usize)) = guard_minute_sleep_frequency
+        .iter()
+        .map(|(guard_id, minutes_slept_frequencies)| {
+            (
+                *guard_id,
+                minutes_slept_frequencies
+                    .iter()
+                    .max_by(|(_min1, freq1), (_min2, freq2)| freq1.cmp(freq2))
+                    .unwrap(),
+            )
+        })
+        //        .inspect(|(guard_id, (min, max_freq))| {println!("g: {}, maxf: {} @ {}", guard_id, max_freq, min)})
+        .max_by(
+            |(_guard_id1, (_min1, max_freq1)), (_guard_id2, (_min2, max_freq2))| {
+                max_freq1.cmp(max_freq2)
+            },
+        )
+        .unwrap();
+
+    // Return guard_id * minute-most-commonly-slept-in
+
+    thing.0 * (thing.1).0
 }
 
 #[test]
@@ -346,4 +393,29 @@ fn test_part_one() {
     ];
 
     assert_eq!(240, solve_part_one(input))
+}
+
+#[test]
+fn test_part_two() {
+    let input = &[
+        "[1518-11-01 00:00] Guard #10 begins shift".to_string(),
+        "[1518-11-01 00:05] falls asleep".to_string(),
+        "[1518-11-01 00:25] wakes up".to_string(),
+        "[1518-11-01 00:30] falls asleep".to_string(),
+        "[1518-11-01 00:55] wakes up".to_string(),
+        "[1518-11-01 23:58] Guard #99 begins shift".to_string(),
+        "[1518-11-02 00:40] falls asleep".to_string(),
+        "[1518-11-02 00:50] wakes up".to_string(),
+        "[1518-11-03 00:05] Guard #10 begins shift".to_string(),
+        "[1518-11-03 00:24] falls asleep".to_string(),
+        "[1518-11-03 00:29] wakes up".to_string(),
+        "[1518-11-04 00:02] Guard #99 begins shift".to_string(),
+        "[1518-11-04 00:36] falls asleep".to_string(),
+        "[1518-11-04 00:46] wakes up".to_string(),
+        "[1518-11-05 00:03] Guard #99 begins shift".to_string(),
+        "[1518-11-05 00:45] falls asleep".to_string(),
+        "[1518-11-05 00:55] wakes up".to_string(),
+    ];
+
+    assert_eq!(4455, solve_part_two(input))
 }
