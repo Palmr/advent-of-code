@@ -1,4 +1,6 @@
 use regex::Regex;
+use std::cmp::Ordering;
+use std::collections::HashMap;
 
 /// --- Day 4: Repose Record ---
 ///
@@ -77,6 +79,16 @@ use regex::Regex;
 /// What is the ID of the guard you chose multiplied by the minute you chose? (In the above example,
 /// the answer would be 10 * 24 = 240.)
 ///
+/// --- Part Two ---
+///
+/// Strategy 2: Of all guards, which guard is most frequently asleep on the same minute?
+///
+/// In the example above, Guard #99 spent minute 45 asleep more than any other guard or minute -
+/// three times in total. (In all other cases, any guard spent any minute asleep at most twice.)
+///
+/// What is the ID of the guard you chose multiplied by the minute you chose? (In the above example,
+/// the answer would be 99 * 45 = 4455.)
+///
 
 #[derive(Debug, Eq, PartialEq)]
 enum GuardSate {
@@ -87,7 +99,7 @@ enum GuardSate {
 
 #[derive(Debug, Eq, PartialEq)]
 struct GuardLog {
-    guard_id: usize,
+    guard_id: Option<usize>,
     state: GuardSate,
     month: usize,
     day: usize,
@@ -95,53 +107,76 @@ struct GuardLog {
     minute: usize,
 }
 
+impl PartialOrd for GuardLog {
+    fn partial_cmp(&self, other: &GuardLog) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+impl Ord for GuardLog {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.month.cmp(&other.month).then(
+            self.day.cmp(&other.day).then(
+                self.hour
+                    .cmp(&other.hour)
+                    .then(self.minute.cmp(&other.minute)),
+            ),
+        )
+    }
+}
+
 fn parse_input(input: &[String]) -> Vec<GuardLog> {
     let re =
         Regex::new(r"\[1518-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2})\] (Guard #([0-9]+) )?(.*)")
             .unwrap();
 
-    let mut current_guard = 0;
-    input
+    let mut states: Vec<GuardLog> = input
         .iter()
         //        .inspect(|l| println!("To parse: {}", l))
         .map(|l| re.captures(l).unwrap())
         //        .inspect(|c| println!("Captured: {:?}", c))
-        .map(|c| {
-            current_guard = c
-                .get(6)
-                .map_or(current_guard, |m| m.as_str().parse().unwrap());
-            GuardLog {
-                guard_id: current_guard,
-                state: c
-                    .get(7)
-                    .map(|m| match m.as_str() {
-                        "begins shift" => GuardSate::BeginShift,
-                        "falls asleep" => GuardSate::FallsAsleep,
-                        "wakes up" => GuardSate::WakesUp,
-                        x => panic!("Invalid state: {}", x),
-                    })
-                    .unwrap(),
-                month: c.get(1).map_or(0, |m| m.as_str().parse().unwrap()),
-                day: c.get(2).map_or(0, |m| m.as_str().parse().unwrap()),
-                hour: c.get(3).map_or(0, |m| m.as_str().parse().unwrap()),
-                minute: c.get(4).map_or(0, |m| m.as_str().parse().unwrap()),
-            }
+        .map(|c| GuardLog {
+            guard_id: c.get(6).and_then(|m| Some(m.as_str().parse().unwrap())),
+            state: c
+                .get(7)
+                .map(|m| match m.as_str() {
+                    "begins shift" => GuardSate::BeginShift,
+                    "falls asleep" => GuardSate::FallsAsleep,
+                    "wakes up" => GuardSate::WakesUp,
+                    x => panic!("Invalid state: {}", x),
+                })
+                .unwrap(),
+            month: c.get(1).map_or(0, |m| m.as_str().parse().unwrap()),
+            day: c.get(2).map_or(0, |m| m.as_str().parse().unwrap()),
+            hour: c.get(3).map_or(0, |m| m.as_str().parse().unwrap()),
+            minute: c.get(4).map_or(0, |m| m.as_str().parse().unwrap()),
         })
-        .collect()
+        .collect();
+
+    states.sort();
+
+    // Fill in guard ids
+    let mut current_guard_id = None;
+    states.iter_mut().for_each(|gl| match gl.state {
+        GuardSate::BeginShift => current_guard_id = gl.guard_id,
+        GuardSate::FallsAsleep | GuardSate::WakesUp => gl.guard_id = current_guard_id,
+    });
+
+    states
 }
 
 #[test]
 fn test_parse_input() {
     let input = &[
-        "[1518-11-01 00:00] Guard #10 begins shift".to_string(),
-        "[1518-11-01 00:05] falls asleep".to_string(),
-        "[1518-11-01 00:25] wakes up".to_string(),
         "[1518-11-01 23:58] Guard #99 begins shift".to_string(),
+        "[1518-11-01 00:00] Guard #10 begins shift".to_string(),
+        "[1518-11-01 00:25] wakes up".to_string(),
+        "[1518-11-01 00:05] falls asleep".to_string(),
         "[1518-11-02 00:40] falls asleep".to_string(),
     ];
     let expected_guard_logs: Vec<GuardLog> = vec![
         GuardLog {
-            guard_id: 10,
+            guard_id: Some(10),
             state: GuardSate::BeginShift,
             month: 11,
             day: 1,
@@ -149,7 +184,7 @@ fn test_parse_input() {
             minute: 0,
         },
         GuardLog {
-            guard_id: 10,
+            guard_id: Some(10),
             state: GuardSate::FallsAsleep,
             month: 11,
             day: 1,
@@ -157,7 +192,7 @@ fn test_parse_input() {
             minute: 5,
         },
         GuardLog {
-            guard_id: 10,
+            guard_id: Some(10),
             state: GuardSate::WakesUp,
             month: 11,
             day: 1,
@@ -165,7 +200,7 @@ fn test_parse_input() {
             minute: 25,
         },
         GuardLog {
-            guard_id: 99,
+            guard_id: Some(99),
             state: GuardSate::BeginShift,
             month: 11,
             day: 1,
@@ -173,7 +208,7 @@ fn test_parse_input() {
             minute: 58,
         },
         GuardLog {
-            guard_id: 99,
+            guard_id: Some(99),
             state: GuardSate::FallsAsleep,
             month: 11,
             day: 2,
@@ -184,15 +219,104 @@ fn test_parse_input() {
     assert_eq!(expected_guard_logs, parse_input(input));
 }
 
+fn aggregate_guard_sleeping_time(guard_logs: &[GuardLog]) -> HashMap<usize, usize> {
+    let mut guard_minutes_slept = HashMap::new();
+    let mut started_sleeping_minute = None;
+    guard_logs.iter().for_each(|gl| match gl.state {
+        GuardSate::BeginShift => {}
+        GuardSate::FallsAsleep => started_sleeping_minute = Some(gl.minute),
+        GuardSate::WakesUp => {
+            if started_sleeping_minute == None {
+                panic!(
+                    "Log waking up for guard who fell asleep at unknown time? {:?}",
+                    gl
+                );
+            }
+            let mins_slept = gl.minute - started_sleeping_minute.unwrap();
+            *guard_minutes_slept.entry(gl.guard_id.unwrap()).or_insert(0) += mins_slept;
+        }
+    });
+
+    guard_minutes_slept
+}
+
+#[test]
+fn test_aggregate_guard_sleeping_time() {
+    let input = &[
+        "[1518-11-01 00:00] Guard #10 begins shift".to_string(),
+        "[1518-11-01 00:05] falls asleep".to_string(),
+        "[1518-11-01 00:25] wakes up".to_string(),
+        "[1518-11-01 00:30] falls asleep".to_string(),
+        "[1518-11-01 00:55] wakes up".to_string(),
+        "[1518-11-01 23:58] Guard #99 begins shift".to_string(),
+        "[1518-11-02 00:40] falls asleep".to_string(),
+        "[1518-11-02 00:50] wakes up".to_string(),
+        "[1518-11-03 00:05] Guard #10 begins shift".to_string(),
+        "[1518-11-03 00:24] falls asleep".to_string(),
+        "[1518-11-03 00:29] wakes up".to_string(),
+        "[1518-11-04 00:02] Guard #99 begins shift".to_string(),
+        "[1518-11-04 00:36] falls asleep".to_string(),
+        "[1518-11-04 00:46] wakes up".to_string(),
+        "[1518-11-05 00:03] Guard #99 begins shift".to_string(),
+        "[1518-11-05 00:45] falls asleep".to_string(),
+        "[1518-11-05 00:55] wakes up".to_string(),
+    ];
+
+    let mut expected = HashMap::new();
+    expected.insert(10, 50);
+    expected.insert(99, 30);
+
+    assert_eq!(expected, aggregate_guard_sleeping_time(&parse_input(input)));
+}
+
 pub fn solve_part_one(input: &[String]) -> usize {
-    let _guard_logs = parse_input(input);
+    let guard_logs = parse_input(input);
 
     // Aggregate guard sleeping minutes
+    let guard_minutes_slept = aggregate_guard_sleeping_time(&guard_logs);
+
     // Find guard with highest sleeping minute count
+    let sleepiest_guard_id = *guard_minutes_slept
+        .iter()
+        .max_by(|(_, v1), (_, v2)| v1.cmp(v2))
+        .unwrap()
+        .0;
+
     // For all shifts that guard had, which minute was most commonly slept in
+    let sleepiest_guards_shifts: Vec<&GuardLog> = guard_logs
+        .iter()
+        .filter(|gl| gl.guard_id.unwrap() == sleepiest_guard_id)
+        .collect();
+
+    let mut minute_slept_map = HashMap::new();
+    let mut started_sleeping_minute = None;
+    sleepiest_guards_shifts
+        .iter()
+        .for_each(|gl| match gl.state {
+            GuardSate::BeginShift => started_sleeping_minute = None,
+            GuardSate::FallsAsleep => started_sleeping_minute = Some(gl.minute),
+            GuardSate::WakesUp => {
+                if started_sleeping_minute == None {
+                    panic!(
+                        "Log waking up for guard who fell asleep at unknown time? {:?}",
+                        gl
+                    );
+                }
+                for m in started_sleeping_minute.unwrap()..gl.minute {
+                    *minute_slept_map.entry(m).or_insert(0) += 1;
+                }
+            }
+        });
+
+    let sleepiest_minute = *minute_slept_map
+        .iter()
+        .max_by(|(_, v1), (_, v2)| v1.cmp(v2))
+        .unwrap()
+        .0;
+
     // Return guard_id * minute-most-commonly-slept-in
 
-    0
+    sleepiest_guard_id * sleepiest_minute
 }
 
 pub fn solve_part_two(_input: &[String]) -> String {
@@ -221,7 +345,5 @@ fn test_part_one() {
         "[1518-11-05 00:55] wakes up".to_string(),
     ];
 
-    // TODO - enable correct assert when implemented
-    //    assert_eq!(240, solve_part_one(input))
-    assert_eq!(0, solve_part_one(input))
+    assert_eq!(240, solve_part_one(input))
 }
