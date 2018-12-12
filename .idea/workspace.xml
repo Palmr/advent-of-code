@@ -2,7 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/aoc2018/day4.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day4.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/2018/day5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day10.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day11.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day12.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day13.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day14.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day15.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day16.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day17.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day18.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day19.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day20.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day21.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day22.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day23.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day24.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day25.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day5.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day6.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day7.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day8.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2018/day9.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2018/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,30 +39,131 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="46" />
+            <state relative-caret-position="395">
+              <caret line="51" column="6" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aoc2018/day4.rs">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day5.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="358" column="23" lean-forward="true" selection-start-line="358" selection-start-column="23" selection-end-line="358" selection-end-column="23" />
+            <state>
               <folding>
-                <element signature="e#4632#4633#0" expanded="true" />
-                <element signature="e#4668#4669#0" expanded="true" />
+                <element signature="e#268#269#0" expanded="true" />
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#381#382#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch_148.txt">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day6.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day7.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day8.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day9.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day10.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day11.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day12.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day13.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day14.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day15.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day16.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day17.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day18.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day19.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day20.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day21.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day22.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day23.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day24.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/day25.rs">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="364" selection-start-column="361" selection-end-column="364" />
+            <state relative-caret-position="360">
+              <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -85,11 +210,13 @@
         <option value="$PROJECT_DIR$/src/aoc2018/day1.rs" />
         <option value="$PROJECT_DIR$/Cargo.toml" />
         <option value="$PROJECT_DIR$/src/aoc2018/day3.rs" />
-        <option value="$PROJECT_DIR$/src/aoc2018/mod.rs" />
         <option value="$PROJECT_DIR$/resources/2018/day4.txt" />
         <option value="$PROJECT_DIR$/.gitlab-ci.yml" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_148.txt" />
         <option value="$PROJECT_DIR$/src/aoc2018/day4.rs" />
+        <option value="$PROJECT_DIR$/resources/2018/day5.txt" />
+        <option value="$PROJECT_DIR$/src/aoc2018/day5.rs" />
+        <option value="$PROJECT_DIR$/src/aoc2018/mod.rs" />
         <option value="$PROJECT_DIR$/src/main.rs" />
       </list>
     </option>
@@ -169,8 +296,8 @@
       <recent name="$PROJECT_DIR$/src/2017" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/2018" />
       <recent name="$PROJECT_DIR$/src/aoc2018" />
+      <recent name="$PROJECT_DIR$/resources/2018" />
       <recent name="$PROJECT_DIR$/src/2018" />
     </key>
   </component>
@@ -193,7 +320,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.clippy">
+  <component name="RunManager" selected="Cargo Command.Run advent-of-code">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -266,11 +393,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo Command.Run advent-of-code" />
+        <item itemvalue="Cargo Command.clippy" />
         <item itemvalue="Cargo Command.clippy" />
         <item itemvalue="Cargo Command.fmt" />
-        <item itemvalue="Cargo Command.Run advent-of-code" />
         <item itemvalue="Cargo Command.Test day4" />
-        <item itemvalue="Cargo Command.Test aoc2018::day4::test_part_two" />
       </list>
     </recent_temporary>
   </component>
@@ -411,7 +538,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544630750122</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="2018 day 4 - part two">
+      <created>1544632592423</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1544632592423</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -450,14 +584,14 @@
     <frame x="1920" y="27" width="1920" height="1173" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24946581" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24946581" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29166666" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29166666" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -568,7 +702,8 @@
     <MESSAGE value="Fixed day 4 test for now and pushed new ci file" />
     <MESSAGE value="rustfmt" />
     <MESSAGE value="2018 day 4 - part one" />
-    <option name="LAST_COMMIT_MESSAGE" value="2018 day 4 - part one" />
+    <MESSAGE value="2018 day 4 - part two" />
+    <option name="LAST_COMMIT_MESSAGE" value="2018 day 4 - part two" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/libcore/str/mod.rs">
@@ -641,13 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aoc2018/day1.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2898">
-          <caret line="161" column="29" selection-start-line="161" selection-start-column="29" selection-end-line="161" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -694,13 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/libcore/option.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -724,8 +845,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/day4.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="358" column="23" lean-forward="true" selection-start-line="358" selection-start-column="23" selection-end-line="358" selection-end-column="23" />
+        <state relative-caret-position="261">
+          <caret line="341" column="61" lean-forward="true" selection-start-line="341" selection-start-column="61" selection-end-line="341" selection-end-column="61" />
           <folding>
             <element signature="e#4632#4633#0" expanded="true" />
             <element signature="e#4668#4669#0" expanded="true" />
@@ -733,10 +854,103 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day1.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="161" column="29" selection-start-line="161" selection-start-column="29" selection-end-line="161" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/2018/day5.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day5.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#268#269#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#381#382#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day6.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day7.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day8.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day9.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day10.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day11.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day12.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day13.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day14.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day15.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day16.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day17.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day18.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day19.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day20.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day21.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day22.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day23.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day24.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/day25.rs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="29" column="2" lean-forward="true" selection-start-line="29" selection-start-column="2" selection-end-line="46" />
+        <state relative-caret-position="395">
+          <caret line="51" column="6" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
         </state>
       </provider>
     </entry>
