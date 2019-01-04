@@ -31,8 +31,43 @@
 ///
 /// How many units remain after fully reacting the polymer you scanned?
 
-pub fn solve_part_one(_input: &[String]) -> String {
-    "TODO".to_string()
+pub fn solve_part_one(input: &[String]) -> usize {
+    let input = &input[0]; // One line only today
+
+    react(input).len()
+}
+
+fn react(input: &str) -> String {
+    let mut reduction = reduce(input);
+    while reduction.len() >= 2 && reduction != reduce(&reduction) {
+        reduction = reduce(&reduction);
+    }
+    reduction
+}
+
+fn reduce(input: &str) -> String {
+    let mut reacted_polymer = String::new();
+    let chars: Vec<char> = input.chars().collect();
+
+    let mut idx = 0;
+    while idx < chars.len() - 1 {
+        let c1: char = chars[idx];
+        let c2: char = chars[idx + 1];
+
+        if c1 != c2 && c1.to_lowercase().next().unwrap() == c2.to_lowercase().next().unwrap() {
+            // react and leave nothing
+            idx += 2;
+        } else {
+            // don't react,
+            reacted_polymer.push(c1);
+            idx += 1;
+        }
+    }
+    if idx < chars.len() {
+        reacted_polymer.push(chars[idx]);
+    }
+
+    reacted_polymer
 }
 
 pub fn solve_part_two(_input: &[String]) -> String {
@@ -40,7 +75,14 @@ pub fn solve_part_two(_input: &[String]) -> String {
 }
 
 #[test]
-fn examples_part_one() {}
+fn examples_part_one() {
+    assert_eq!(10, solve_part_one(&["dabAcCaCBAcCcaDA".to_string()]));
+
+    assert_eq!(0, solve_part_one(&["aA".to_string()]));
+    assert_eq!(0, solve_part_one(&["abBA".to_string()]));
+    assert_eq!(4, solve_part_one(&["abAB".to_string()]));
+    assert_eq!(6, solve_part_one(&["aabAAB".to_string()]));
+}
 
 #[test]
 fn examples_part_two() {}
