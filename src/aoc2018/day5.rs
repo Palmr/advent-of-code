@@ -64,7 +64,9 @@ pub fn solve_part_two(input: &[String]) -> usize {
     let mut shortest_len = input.len();
     let alphabet = String::from_utf8((b'a'..=b'z').collect()).unwrap();
     for c in alphabet.chars() {
-        let x = input.replace(c, "").replace(c.to_uppercase().next().unwrap(), "");
+        let x = input
+            .replace(c, "")
+            .replace(c.to_uppercase().next().unwrap(), "");
         let l = react(&x).len();
         if l < shortest_len {
             println!("Shorter: {} - {}", c, l);
