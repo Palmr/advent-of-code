@@ -69,7 +69,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
             .replace(c.to_uppercase().next().unwrap(), "");
         let l = react(&x).len();
         if l < shortest_len {
-//            println!("Shorter: {} - {}", c, l);
+            //            println!("Shorter: {} - {}", c, l);
             shortest_len = l;
         }
     }

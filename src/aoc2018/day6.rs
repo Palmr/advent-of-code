@@ -147,33 +147,53 @@ pub fn solve_part_one(input: &[String]) -> isize {
     let max_x = coords.iter().map(|c| c.x).max().unwrap();
     let min_y = coords.iter().map(|c| c.y).min().unwrap();
     let max_y = coords.iter().map(|c| c.y).max().unwrap();
-//    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
+    //    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
 
-    let mut coord_areas: Vec<CoordSize> = coords.iter()
+    let mut coord_areas: Vec<CoordSize> = coords
+        .iter()
         .map(|c| CoordSize {
             id: c.id.unwrap(),
             area: 0,
             infinite: false,
-        }).collect();
+        })
+        .collect();
 
     for gx in min_x..=max_x {
         for gy in min_y..=max_y {
             // Find distance to each coord (x-delta + y-delta)
             let coord_distances: Vec<(Option<usize>, isize)> = coords
                 .iter()
-                .map(|coord|
-                    (coord.id, manhattan_distance(coord, &Coord { id: None, x: gx, y: gy }))
-                )
-//                .inspect(|(cid, dist)| println!("{}, {} : {:?} - {}", gx, gy, cid, dist))
+                .map(|coord| {
+                    (
+                        coord.id,
+                        manhattan_distance(
+                            coord,
+                            &Coord {
+                                id: None,
+                                x: gx,
+                                y: gy,
+                            },
+                        ),
+                    )
+                })
+                //                .inspect(|(cid, dist)| println!("{}, {} : {:?} - {}", gx, gy, cid, dist))
                 .collect();
 
             // Find min distance
             let min_dist = coord_distances.iter().min_by_key(|cd| cd.1).unwrap();
-//            println!("Min dist: {},{} -> {:?}", gx, gy, min_dist);
-            if coord_distances.iter().filter(|(_, cd)| cd == &min_dist.1).count() > 1 {
+            //            println!("Min dist: {},{} -> {:?}", gx, gy, min_dist);
+            if coord_distances
+                .iter()
+                .filter(|(_, cd)| cd == &min_dist.1)
+                .count()
+                > 1
+            {
                 // If multiple coords have the same distance it belongs to no coord
             } else {
-                let mut coord_area = coord_areas.iter_mut().find(|ca| ca.id == min_dist.0.unwrap()).unwrap();
+                let mut coord_area = coord_areas
+                    .iter_mut()
+                    .find(|ca| ca.id == min_dist.0.unwrap())
+                    .unwrap();
                 // if cell is on boundary, mark is as extending to infinite for the coord_areas[coord_id]
                 if gx == min_x || gx == max_x || gy == min_y || gy == max_y {
                     coord_area.infinite = true;
@@ -200,7 +220,7 @@ pub fn solve_part_two(input: &[String]) -> isize {
     let max_x = coords.iter().map(|c| c.x).max().unwrap();
     let min_y = coords.iter().map(|c| c.y).min().unwrap();
     let max_y = coords.iter().map(|c| c.y).max().unwrap();
-//    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
+    //    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
 
     let mut safe_area = 0;
 
@@ -209,10 +229,20 @@ pub fn solve_part_two(input: &[String]) -> isize {
             // Find distance to each coord (x-delta + y-delta)
             let coord_distances: Vec<(Option<usize>, isize)> = coords
                 .iter()
-                .map(|coord|
-                    (coord.id, manhattan_distance(coord, &Coord { id: None, x: gx, y: gy }))
-                )
-//                .inspect(|(cid, dist)| println!("{}, {} : {:?} - {}", gx, gy, cid, dist))
+                .map(|coord| {
+                    (
+                        coord.id,
+                        manhattan_distance(
+                            coord,
+                            &Coord {
+                                id: None,
+                                x: gx,
+                                y: gy,
+                            },
+                        ),
+                    )
+                })
+                //                .inspect(|(cid, dist)| println!("{}, {} : {:?} - {}", gx, gy, cid, dist))
                 .collect();
 
             let dist_sum: isize = coord_distances.iter().map(|(_, cd)| cd).sum();
