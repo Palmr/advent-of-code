@@ -65,11 +65,62 @@ use regex::Regex;
 /// location itself). Therefore, in this example, the size of the largest area is 17.
 ///
 /// What is the size of the largest area that isn't infinite?
+///
+/// --- Part Two ---
+///
+/// On the other hand, if the coordinates are safe, maybe the best you can do is try to find a
+/// region near as many coordinates as possible.
+///
+/// For example, suppose you want the sum of the Manhattan distance to all of the coordinates to be
+/// less than 32. For each location, add up the distances to all of the given coordinates; if the
+/// total of those distances is less than 32, that location is within the desired region. Using the
+/// same coordinates as above, the resulting region looks like this:
+///
+/// ..........
+/// .A........
+/// ..........
+/// ...###..C.
+/// ..#D###...
+/// ..###E#...
+/// .B.###....
+/// ..........
+/// ..........
+/// ........F.
+///
+/// In particular, consider the highlighted location 4,3 located at the top middle of the region.
+/// Its calculation is as follows, where abs() is the absolute value function:
+///
+///     Distance to coordinate A: abs(4-1) + abs(3-1) =  5
+///     Distance to coordinate B: abs(4-1) + abs(3-6) =  6
+///     Distance to coordinate C: abs(4-8) + abs(3-3) =  4
+///     Distance to coordinate D: abs(4-3) + abs(3-4) =  2
+///     Distance to coordinate E: abs(4-5) + abs(3-5) =  3
+///     Distance to coordinate F: abs(4-8) + abs(3-9) = 10
+///     Total distance: 5 + 6 + 4 + 2 + 3 + 10 = 30
+///
+/// Because the total distance to all coordinates (30) is less than 32, the location is within the
+/// region.
+///
+/// This region, which also includes coordinates D and E, has a total size of 16.
+///
+/// Your actual region will need to be much larger than this example, though, instead including all
+/// locations with a total distance of less than 10000.
+///
+/// What is the size of the region containing all locations which have a total distance to all given
+/// coordinates of less than 10000?
 
 #[derive(Debug)]
 struct Coord {
+    id: Option<usize>,
     x: isize,
     y: isize,
+}
+
+#[derive(Debug)]
+struct CoordSize {
+    id: usize,
+    area: isize,
+    infinite: bool,
 }
 
 fn parse_input(input: &[String]) -> Vec<Coord> {
@@ -79,72 +130,114 @@ fn parse_input(input: &[String]) -> Vec<Coord> {
         .iter()
         //        .inspect(|l| println!("To parse: {}", l))
         .map(|l| re.captures(l).unwrap())
-        .map(|c| Coord {
+        .enumerate()
+        .map(|(id, c)| Coord {
+            id: Some(id),
             x: c.get(1).map_or(0, |m| m.as_str().parse().unwrap()),
             y: c.get(2).map_or(0, |m| m.as_str().parse().unwrap()),
         })
+        .inspect(|c| println!("Parsed coord: {:?}", c))
         .collect()
 }
 
-pub fn solve_part_one(input: &[String]) -> usize {
+pub fn solve_part_one(input: &[String]) -> isize {
     let coords = parse_input(input);
 
     let min_x = coords.iter().map(|c| c.x).min().unwrap();
     let max_x = coords.iter().map(|c| c.x).max().unwrap();
     let min_y = coords.iter().map(|c| c.y).min().unwrap();
     let max_y = coords.iter().map(|c| c.y).max().unwrap();
-    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
+//    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
 
-//    let coord_areas;
+    let mut coord_areas: Vec<CoordSize> = coords.iter()
+        .map(|c| CoordSize {
+            id: c.id.unwrap(),
+            area: 0,
+            infinite: false,
+        }).collect();
+
     for gx in min_x..=max_x {
         for gy in min_y..=max_y {
-            println!("grid cell to check: {},{}", gx, gy);
             // Find distance to each coord (x-delta + y-delta)
-            let coord_distances = coords
+            let coord_distances: Vec<(Option<usize>, isize)> = coords
                 .iter()
-                .enumerate()
-                .map(|(id, coord)|
-                         (id, manhattan_distance(coord, &Coord{x: gx, y: gy}))
+                .map(|coord|
+                    (coord.id, manhattan_distance(coord, &Coord { id: None, x: gx, y: gy }))
                 )
+//                .inspect(|(cid, dist)| println!("{}, {} : {:?} - {}", gx, gy, cid, dist))
                 .collect();
 
-            // Find min distance, ignore if multiple with same distance
-            // if cell is on boundary, mark is as extending to infinite for the coord_areas[coord_id]
-            // Increment count for coord_areas[coord_id]
+            // Find min distance
+            let min_dist = coord_distances.iter().min_by_key(|cd| cd.1).unwrap();
+//            println!("Min dist: {},{} -> {:?}", gx, gy, min_dist);
+            if coord_distances.iter().filter(|(_, cd)| cd == &min_dist.1).count() > 1 {
+                // If multiple coords have the same distance it belongs to no coord
+            } else {
+                let mut coord_area = coord_areas.iter_mut().find(|ca| ca.id == min_dist.0.unwrap()).unwrap();
+                // if cell is on boundary, mark is as extending to infinite for the coord_areas[coord_id]
+                if gx == min_x || gx == max_x || gy == min_y || gy == max_y {
+                    coord_area.infinite = true;
+                    coord_area.area = -1;
+                } else if !coord_area.infinite {
+                    coord_area.area += 1;
+                }
+            }
         }
     }
 
     // Return cell_size with highest count
-
-    0
+    coord_areas.iter().max_by_key(|ca| ca.area).unwrap().area
 }
 
 fn manhattan_distance(c1: &Coord, c2: &Coord) -> isize {
-    (c1.x - c2.x).abs() + (c1.y + c2.y).abs()
+    (c1.x - c2.x).abs() + (c1.y - c2.y).abs()
+}
+
+pub fn solve_part_two(input: &[String]) -> isize {
+    let coords = parse_input(input);
+
+    let min_x = coords.iter().map(|c| c.x).min().unwrap();
+    let max_x = coords.iter().map(|c| c.x).max().unwrap();
+    let min_y = coords.iter().map(|c| c.y).min().unwrap();
+    let max_y = coords.iter().map(|c| c.y).max().unwrap();
+//    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
+
+    let mut safe_area = 0;
+
+    for gx in min_x..=max_x {
+        for gy in min_y..=max_y {
+            // Find distance to each coord (x-delta + y-delta)
+            let coord_distances: Vec<(Option<usize>, isize)> = coords
+                .iter()
+                .map(|coord|
+                    (coord.id, manhattan_distance(coord, &Coord { id: None, x: gx, y: gy }))
+                )
+//                .inspect(|(cid, dist)| println!("{}, {} : {:?} - {}", gx, gy, cid, dist))
+                .collect();
+
+            let dist_sum: isize = coord_distances.iter().map(|(_, cd)| cd).sum();
+            if dist_sum < 10000 {
+                safe_area += 1;
+            }
+        }
+    }
+
+    safe_area
 }
 
 #[test]
-fn test_manhattan_distance() {
-    assert_eq!(10, manhattan_distance(&Coord{x: 1, y: 1}, &Coord{x: 5, y: 5}))
-}
+fn examples_part_one() {
+    let input = &[
+        "1, 1".to_string(),
+        "1, 6".to_string(),
+        "8, 3".to_string(),
+        "3, 4".to_string(),
+        "5, 5".to_string(),
+        "8, 9".to_string(),
+    ];
 
-pub fn solve_part_two(_input: &[String]) -> String {
-    "TODO".to_string()
+    assert_eq!(17, solve_part_one(input));
 }
-//
-//#[test]
-//fn examples_part_one() {
-//    let input = &[
-//        "1, 1".to_string(),
-//        "1, 6".to_string(),
-//        "8, 3".to_string(),
-//        "3, 4".to_string(),
-//        "5, 5".to_string(),
-//        "8, 9".to_string(),
-//    ];
-//
-//    assert_eq!(17, solve_part_one(input));
-//}
 
 #[test]
 fn examples_part_two() {}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="Stubbed day 6">
+    <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/2018/day6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2018/day5.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day5.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aoc2018/day6.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day6.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,17 +14,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aoc2018/day6.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="147" lean-forward="true" selection-start-line="133" selection-end-line="147" />
+            <state relative-caret-position="-70">
+              <caret line="210" column="23" lean-forward="true" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
               <folding>
-                <element signature="e#3832#3833#0" expanded="true" />
-                <element signature="e#3880#3881#0" expanded="true" />
-                <element signature="e#3174#3175#0" expanded="true" />
-                <element signature="e#3199#3200#0" expanded="true" />
+                <element signature="e#4714#4715#0" expanded="true" />
+                <element signature="e#4762#4763#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="59" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -78,18 +85,18 @@
         <option value="$PROJECT_DIR$/resources/2018/day5.txt" />
         <option value="$PROJECT_DIR$/src/aoc2017/mod.rs" />
         <option value="$PROJECT_DIR$/src/main.rs" />
-        <option value="$PROJECT_DIR$/src/aoc2018/mod.rs" />
-        <option value="$PROJECT_DIR$/src/aoc2018/day5.rs" />
         <option value="$PROJECT_DIR$/resources/2018/day6.txt" />
+        <option value="$PROJECT_DIR$/src/aoc2018/day5.rs" />
         <option value="$PROJECT_DIR$/src/aoc2018/day6.rs" />
+        <option value="$PROJECT_DIR$/src/aoc2018/mod.rs" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1966" />
-    <option name="y" value="226" />
-    <option name="width" value="1717" />
-    <option name="height" value="920" />
+    <option name="x" value="1920" />
+    <option name="y" value="27" />
+    <option name="width" value="1920" />
+    <option name="height" value="1173" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -97,6 +104,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -130,8 +139,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -178,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.Test aoc2018::day6::test_manhattan_distance">
+  <component name="RunManager" selected="Cargo Command.Run advent-of-code">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -251,11 +258,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo Command.Test aoc2018::day6::test_manhattan_distance" />
-        <item itemvalue="Cargo Command.Test day6" />
-        <item itemvalue="Cargo Command.fmt" />
-        <item itemvalue="Cargo Command.Test aoc2018::day6::examples_part_one" />
         <item itemvalue="Cargo Command.Run advent-of-code" />
+        <item itemvalue="Cargo Command.Test day6" />
+        <item itemvalue="Cargo Command.Test aoc2018::day6::examples_part_one" />
+        <item itemvalue="Cargo Command.Test aoc2018::day6::test_manhattan_distance" />
+        <item itemvalue="Cargo Command.fmt" />
       </list>
     </recent_temporary>
   </component>
@@ -445,53 +452,60 @@
       <option name="project" value="LOCAL" />
       <updated>1546623787678</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Stubbed day 6">
+      <created>1546626081826</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1546626081826</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test_day6 - 2019.01.04 at 16h 32m 45s.xml">
+    <history-entry file="Test_day6 - 2019.01.09 at 17h 31m 48s.xml">
       <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_day6 - 2019.01.04 at 17h 49m 43s.xml">
+    <history-entry file="Test_day6 - 2019.01.09 at 17h 31m 55s.xml">
       <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_day6 - 2019.01.04 at 17h 51m 22s.xml">
+    <history-entry file="Test_day6 - 2019.01.09 at 17h 32m 11s.xml">
       <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_aoc2018__day6__test_manhattan_distance - 2019.01.04 at 18h 02m 04s.xml">
-      <configuration name="Test aoc2018::day6::test_manhattan_distance" configurationId="CargoCommandRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_aoc2018__day6__test_manhattan_distance - 2019.01.04 at 18h 02m 19s.xml">
-      <configuration name="Test aoc2018::day6::test_manhattan_distance" configurationId="CargoCommandRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_aoc2018__day6__test_manhattan_distance - 2019.01.04 at 18h 07m 11s.xml">
-      <configuration name="Test aoc2018::day6::test_manhattan_distance" configurationId="CargoCommandRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_aoc2018__day6__test_manhattan_distance - 2019.01.04 at 18h 07m 58s.xml">
-      <configuration name="Test aoc2018::day6::test_manhattan_distance" configurationId="CargoCommandRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_aoc2018__day6__test_manhattan_distance - 2019.01.04 at 18h 08m 13s.xml">
-      <configuration name="Test aoc2018::day6::test_manhattan_distance" configurationId="CargoCommandRunConfiguration" />
-    </history-entry>
-    <history-entry file="Test_day6 - 2019.01.04 at 18h 08m 50s.xml">
+    <history-entry file="Test_day6 - 2019.01.09 at 17h 32m 37s.xml">
       <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
-    <history-entry file="Test_aoc2018__day6__test_manhattan_distance - 2019.01.04 at 18h 08m 55s.xml">
-      <configuration name="Test aoc2018::day6::test_manhattan_distance" configurationId="CargoCommandRunConfiguration" />
+    <history-entry file="Test_day6 - 2019.01.11 at 13h 58m 01s.xml">
+      <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_day6 - 2019.01.11 at 13h 59m 12s.xml">
+      <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_day6 - 2019.01.11 at 13h 59m 49s.xml">
+      <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_aoc2018__day6__examples_part_one - 2019.01.11 at 13h 59m 52s.xml">
+      <configuration name="Test aoc2018::day6::examples_part_one" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_day6 - 2019.01.11 at 14h 00m 00s.xml">
+      <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
+    </history-entry>
+    <history-entry file="Test_day6 - 2019.01.11 at 14h 00m 12s.xml">
+      <configuration name="Test day6" configurationId="CargoCommandRunConfiguration" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="27" width="1920" height="1173" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21153846" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21955128" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29166666" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33333334" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -608,7 +622,8 @@
     <MESSAGE value="Day 5 part one" />
     <MESSAGE value="Day 5 part two" />
     <MESSAGE value="fmt" />
-    <option name="LAST_COMMIT_MESSAGE" value="fmt" />
+    <MESSAGE value="Stubbed day 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Stubbed day 6" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/libcore/ops/function.rs">
@@ -794,13 +809,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/libcore/iter/iterator.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="1474" column="7" selection-start-line="1474" selection-start-column="7" selection-end-line="1474" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/day4.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4936">
@@ -840,20 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/2018/day6.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
@@ -868,23 +862,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/libcore/iter/iterator.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37440">
+          <caret line="2131" column="16" selection-start-line="2131" selection-start-column="16" selection-end-line="2131" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/day5.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        <state relative-caret-position="504">
+          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="72" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/aoc2018/day6.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="147" lean-forward="true" selection-start-line="133" selection-end-line="147" />
+        <state relative-caret-position="-70">
+          <caret line="210" column="23" lean-forward="true" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
           <folding>
-            <element signature="e#3832#3833#0" expanded="true" />
-            <element signature="e#3880#3881#0" expanded="true" />
-            <element signature="e#3174#3175#0" expanded="true" />
-            <element signature="e#3199#3200#0" expanded="true" />
+            <element signature="e#4714#4715#0" expanded="true" />
+            <element signature="e#4762#4763#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aoc2018/mod.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="59" column="6" lean-forward="true" selection-start-line="31" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
         </state>
       </provider>
     </entry>
