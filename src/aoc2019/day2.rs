@@ -16,7 +16,7 @@ fn run_vm<F>(int_codes: &mut Vec<isize>, mangle: F) -> isize where F: Fn(&mut Ve
     let mut pc = 0;
 
     loop {
-        println!("State: PC={} MEM={:?}", pc, int_codes);
+//        println!("State: PC={} MEM={:?}", pc, int_codes);
         let opcode = int_codes[pc];
 
         match opcode {
@@ -49,16 +49,35 @@ fn run_vm<F>(int_codes: &mut Vec<isize>, mangle: F) -> isize where F: Fn(&mut Ve
         }
     }
 
-    println!("State: PC={} MEM={:?}", pc, int_codes);
+//    println!("State: PC={} MEM={:?}", pc, int_codes);
 
     int_codes[0]
 }
 
 pub fn solve_part_two(input: &[String]) -> isize {
     let csv_intcode = input.get(0).unwrap();
-    let mut int_codes: Vec<isize> = csv_intcode.split(',').map(|i| i.parse().unwrap()).collect();
+    let int_codes: Vec<isize> = csv_intcode.split(',').map(|i| i.parse().unwrap()).collect();
 
-    run_vm(&mut int_codes, |_|{})
+    let mut answers: Vec<(isize, isize)> = Vec::new();
+
+    for i in 0..=99 {
+        for j in 0..=99 {
+            let mut cloned_codes = int_codes.clone();
+            let result = run_vm(&mut cloned_codes, |ic| {
+                ic[1] = i;
+                ic[2] = j
+            });
+
+            if result == 19690720 {
+                return 100 * i + j;
+//                answers.push((i, j));
+            }
+        }
+    }
+
+//    println!("Answers: {:?}", answers);
+
+    -1
 }
 
 #[test]

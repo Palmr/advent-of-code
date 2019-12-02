@@ -7,7 +7,6 @@
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/aoc2019/day2.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/day2.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2019/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,7 @@
       <command value="cargo fmt" />
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.Test day2">
+  <component name="RunManager" selected="Cargo Command.Run advent-of-code">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -183,10 +182,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo Command.Run advent-of-code" />
         <item itemvalue="Cargo Command.Test day2" />
         <item itemvalue="Cargo Command.Test aoc2019::day2::examples_part_one" />
         <item itemvalue="Cargo Command.fmt" />
-        <item itemvalue="Cargo Command.Run advent-of-code" />
         <item itemvalue="Cargo Command.Test day7" />
       </list>
     </recent_temporary>
@@ -428,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575304917453</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="2019 day 2">
+      <created>1575305420087</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1575305420087</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,26 +497,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="2019 day 2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2" timestamp="1575304917357">
+    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2" timestamp="1575305419998">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575304917357" />
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom" timestamp="1575305413273">
+    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305419998" />
+    <state width="1874" height="367" key="GridCell.Tab.0.bottom" timestamp="1575305912013">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305413273" />
-    <state width="1874" height="367" key="GridCell.Tab.0.center" timestamp="1575305413272">
+    <state width="1874" height="367" key="GridCell.Tab.0.bottom/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
+    <state width="1874" height="367" key="GridCell.Tab.0.center" timestamp="1575305912013">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.center/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305413272" />
-    <state width="1874" height="367" key="GridCell.Tab.0.left" timestamp="1575305413272">
+    <state width="1874" height="367" key="GridCell.Tab.0.center/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
+    <state width="1874" height="367" key="GridCell.Tab.0.left" timestamp="1575305912013">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.left/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305413272" />
-    <state width="1874" height="367" key="GridCell.Tab.0.right" timestamp="1575305413272">
+    <state width="1874" height="367" key="GridCell.Tab.0.left/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
+    <state width="1874" height="367" key="GridCell.Tab.0.right" timestamp="1575305912013">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.right/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305413272" />
+    <state width="1874" height="367" key="GridCell.Tab.0.right/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
     <state width="634" height="559" key="javadoc.popup.new" timestamp="1575305304174">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
