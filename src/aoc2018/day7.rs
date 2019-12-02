@@ -1,3 +1,9 @@
+use std::collections::HashMap;
+
+use regex::Regex;
+use std::collections::BTreeSet;
+use std::collections::HashSet;
+
 /// --- Day 7: The Sum of Its Parts ---
 ///
 /// You find yourself standing on a snow-covered coastline; apparently, you landed a little off
@@ -55,9 +61,97 @@
 /// So, in this example, the correct order is CABDFE.
 ///
 /// In what order should the steps in your instructions be completed?
+#[derive(Debug)]
+struct Node {
+    id: String,
+    finishes_before: Vec<String>,
+    prerequisites: Vec<String>,
+}
 
-pub fn solve_part_one(_input: &[String]) -> String {
-    "TODO".to_string()
+
+#[derive(Debug)]
+struct Instruction {
+    prerequisite: String,
+    node_id: String,
+}
+
+fn parse_input(input: &[String]) -> Vec<Instruction> {
+    let re = Regex::new(r"Step ([A-Z]) must be finished before step ([A-Z]) can begin.").unwrap();
+
+    input
+        .iter()
+        //        .inspect(|l| println!("To parse: {}", l))
+        .map(|l| re.captures(l).unwrap())
+        .map(|c| Instruction {
+            prerequisite: c.get(1).map_or("???".to_owned(), |m| m.as_str().to_owned()),
+            node_id: c.get(2).map_or("???".to_owned(), |m| m.as_str().to_owned()),
+        })
+        .inspect(|i| println!("Parsed Instruction: {:?}", i))
+        .collect()
+}
+
+pub fn solve_part_one(input: &[String]) -> String {
+    let instructions = parse_input(input);
+
+    let mut graph: HashMap<String, Node> = HashMap::new();
+    instructions.iter().for_each(|i| {
+        graph
+            .entry(i.prerequisite.clone())
+            .or_insert(Node {
+                id: i.prerequisite.clone(),
+                finishes_before: Vec::new(),
+                prerequisites: Vec::new(),
+            })
+            .finishes_before.push(i.node_id.clone());
+        graph
+            .entry(i.node_id.clone())
+            .or_insert(Node {
+                id: i.node_id.clone(),
+                finishes_before: Vec::new(),
+                prerequisites: Vec::new(),
+            })
+            .prerequisites.push(i.prerequisite.clone());
+    });
+
+    // Find start node, one with no pre-requesites
+    let mut working_node = graph.iter().find_map(|(_, v)| if v.prerequisites.is_empty() { Some(v) } else { None }).unwrap();
+
+    let mut output = String::new();
+
+    let mut options = Vec::new();
+
+    loop {
+        println!("Working node: {:?}", working_node);
+
+        output += working_node.id.clone().as_str();
+
+        working_node.finishes_before.iter().for_each(|p| {
+            if !options.contains(p) {
+                options.push(p.to_string());
+            }
+        });
+
+        println!("Options: {:?}", options);
+
+        options.sort();
+
+        match options.iter().filter(|o| graph.get(&o).unwrap().prerequisites.is_empty()).next() {
+            Some(o) => {
+                working_node = graph.get(&o).unwrap();
+            }
+            None => { break; }
+        }
+
+//        options.reverse();
+//        match options.pop() {
+//            Some(o) => {
+//                working_node = graph.get(&o).unwrap();
+//            }
+//            None => { break; }
+//        }
+    }
+
+    output
 }
 
 pub fn solve_part_two(_input: &[String]) -> String {
@@ -65,7 +159,17 @@ pub fn solve_part_two(_input: &[String]) -> String {
 }
 
 #[test]
-fn examples_part_one() {}
+fn examples_part_one() {
+    let input = &["Step C must be finished before step A can begin.".to_owned(),
+        "Step C must be finished before step F can begin.".to_owned(),
+        "Step A must be finished before step B can begin.".to_owned(),
+        "Step A must be finished before step D can begin.".to_owned(),
+        "Step B must be finished before step E can begin.".to_owned(),
+        "Step D must be finished before step E can begin.".to_owned(),
+        "Step F must be finished before step E can begin.".to_owned()];
+
+    assert_eq!("CABDFE", solve_part_one(input));
+}
 
 #[test]
 fn examples_part_two() {}
