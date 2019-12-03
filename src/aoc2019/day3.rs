@@ -1,33 +1,5 @@
 use std::collections::HashSet;
-
-pub fn solve_part_one(input: &[String]) -> isize {
-    let wire1 = parse_wire(&input[0]);
-    let wire2 = parse_wire(&input[1]);
-    // println!("wire1 parsed: {:?}", wire1);
-    // println!("wire2 parsed: {:?}", wire2);
-
-    let wire1 = realise_wire(wire1);
-    let wire2 = realise_wire(wire2);
-    // println!("wire1 coords: {:?}", wire1);
-    // println!("wire2 coords: {:?}", wire2);
-
-    let result = find_minimum_intersection(wire1, wire2);
-    //    println!("minimum_intersection: {:?}", result);
-
-    result
-}
-
-fn find_minimum_intersection(
-    wire1: HashSet<(isize, isize)>,
-    wire2: HashSet<(isize, isize)>,
-) -> isize {
-    wire1
-        .into_iter()
-        .filter(|c| wire2.contains(c))
-        .map(|(x, y)| x.abs() + y.abs())
-        .min()
-        .unwrap()
-}
+use std::hash::{Hash, Hasher};
 
 #[derive(Debug)]
 enum Move {
@@ -54,11 +26,32 @@ fn parse_wire(input: &String) -> Vec<Move> {
     input.split(',').map(|e| Move::parse(&e)).collect()
 }
 
-fn realise_wire(wire: Vec<Move>) -> HashSet<(isize, isize)> {
+#[derive(Debug)]
+struct WireCoord {
+    x: isize,
+    y: isize,
+    length: isize,
+}
+impl Hash for WireCoord {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self.x.hash(state);
+        self.y.hash(state);
+    }
+}
+impl PartialEq for WireCoord {
+    fn eq(&self, other: &Self) -> bool {
+        self.x == other.x && self.y == other.y
+    }
+}
+
+impl Eq for WireCoord {}
+
+fn realise_wire(wire: Vec<Move>) -> HashSet<WireCoord> {
     let mut coords = HashSet::new();
 
     let mut x: isize = 0;
     let mut y: isize = 0;
+    let mut length: isize = 0;
 
     for wire_move in wire {
         let mut dx: isize = 0;
@@ -85,15 +78,68 @@ fn realise_wire(wire: Vec<Move>) -> HashSet<(isize, isize)> {
         for i in 0..dist {
             x += dx;
             y += dy;
-            coords.insert((x, y));
+            length += 1;
+
+            coords.insert(WireCoord { x, y, length });
         }
     }
 
     coords
 }
 
+fn find_minimum_manhattan_distance_intersection(
+    wire1: HashSet<WireCoord>,
+    wire2: HashSet<WireCoord>,
+) -> isize {
+    wire1
+        .into_iter()
+        .filter(|c| wire2.contains(c))
+        .map(|wc| wc.x.abs() + wc.y.abs())
+        .min()
+        .unwrap()
+}
+
+fn find_minimum_length_intersection(wire1: HashSet<WireCoord>, wire2: HashSet<WireCoord>) -> isize {
+    wire1
+        .into_iter()
+        .filter(|c| wire2.contains(c))
+        .map(|w1c| w1c.length + wire2.get(&w1c).unwrap().length)
+        .min()
+        .unwrap()
+}
+
+pub fn solve_part_one(input: &[String]) -> isize {
+    let wire1 = parse_wire(&input[0]);
+    let wire2 = parse_wire(&input[1]);
+    // println!("wire1 parsed: {:?}", wire1);
+    // println!("wire2 parsed: {:?}", wire2);
+
+    let wire1 = realise_wire(wire1);
+    let wire2 = realise_wire(wire2);
+    // println!("wire1 coords: {:?}", wire1);
+    // println!("wire2 coords: {:?}", wire2);
+
+    let result = find_minimum_manhattan_distance_intersection(wire1, wire2);
+    //    println!("minimum_intersection: {:?}", result);
+
+    result
+}
+
 pub fn solve_part_two(input: &[String]) -> isize {
-    -1
+    let wire1 = parse_wire(&input[0]);
+    let wire2 = parse_wire(&input[1]);
+    // println!("wire1 parsed: {:?}", wire1);
+    // println!("wire2 parsed: {:?}", wire2);
+
+    let wire1 = realise_wire(wire1);
+    let wire2 = realise_wire(wire2);
+    println!("wire1 coords: {:?}", wire1);
+    println!("wire2 coords: {:?}", wire2);
+
+    let result = find_minimum_length_intersection(wire1, wire2);
+    //    println!("minimum_intersection: {:?}", result);
+
+    result
 }
 
 #[test]
@@ -112,4 +158,16 @@ fn examples_part_one() {
 }
 
 #[test]
-fn examples_part_two() {}
+fn examples_part_two() {
+    let input = &[
+        "R75,D30,R83,U83,L12,D49,R71,U7,L72".to_string(),
+        "U62,R66,U55,R34,D71,R55,D58,R83".to_string(),
+    ];
+    assert_eq!(610, solve_part_two(input));
+
+    let input = &[
+        "R98,U47,R26,D63,R33,U87,L62,D20,R33,U53,R51".to_string(),
+        "U98,R91,D20,R16,D67,R40,U7,R15,U6,R7".to_string(),
+    ];
+    assert_eq!(410, solve_part_two(input));
+}
