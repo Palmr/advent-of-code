@@ -3,20 +3,26 @@ pub fn part_1_mangling(input_codes: &mut Vec<isize>) {
     input_codes[2] = 2;
 }
 
-pub fn solve_part_one<F>(input: &[String], mangle: F) -> isize where F: Fn(&mut Vec<isize>) {
+pub fn solve_part_one<F>(input: &[String], mangle: F) -> isize
+where
+    F: Fn(&mut Vec<isize>),
+{
     let csv_intcode = input.get(0).unwrap();
     let mut int_codes: Vec<isize> = csv_intcode.split(',').map(|i| i.parse().unwrap()).collect();
 
     run_vm(&mut int_codes, mangle)
 }
 
-fn run_vm<F>(int_codes: &mut Vec<isize>, mangle: F) -> isize where F: Fn(&mut Vec<isize>) {
+fn run_vm<F>(int_codes: &mut Vec<isize>, mangle: F) -> isize
+where
+    F: Fn(&mut Vec<isize>),
+{
     mangle(int_codes);
 
     let mut pc = 0;
 
     loop {
-//        println!("State: PC={} MEM={:?}", pc, int_codes);
+        //        println!("State: PC={} MEM={:?}", pc, int_codes);
         let opcode = int_codes[pc];
 
         match opcode {
@@ -49,7 +55,7 @@ fn run_vm<F>(int_codes: &mut Vec<isize>, mangle: F) -> isize where F: Fn(&mut Ve
         }
     }
 
-//    println!("State: PC={} MEM={:?}", pc, int_codes);
+    //    println!("State: PC={} MEM={:?}", pc, int_codes);
 
     int_codes[0]
 }
@@ -70,12 +76,12 @@ pub fn solve_part_two(input: &[String]) -> isize {
 
             if result == 19690720 {
                 return 100 * i + j;
-//                answers.push((i, j));
+                //                answers.push((i, j));
             }
         }
     }
 
-//    println!("Answers: {:?}", answers);
+    //    println!("Answers: {:?}", answers);
 
     -1
 }
@@ -84,14 +90,14 @@ pub fn solve_part_two(input: &[String]) -> isize {
 fn examples_part_one() {
     assert_eq!(
         3500,
-        solve_part_one(&["1,9,10,3,2,3,11,0,99,30,40,50".to_string()], |x|{})
+        solve_part_one(&["1,9,10,3,2,3,11,0,99,30,40,50".to_string()], |x| {})
     );
-    assert_eq!(2, solve_part_one(&["1,0,0,0,99".to_string()], |x|{}));
-    assert_eq!(2, solve_part_one(&["2,3,0,3,99".to_string()], |x|{}));
-    assert_eq!(2, solve_part_one(&["2,4,4,5,99,0".to_string()], |x|{}));
+    assert_eq!(2, solve_part_one(&["1,0,0,0,99".to_string()], |x| {}));
+    assert_eq!(2, solve_part_one(&["2,3,0,3,99".to_string()], |x| {}));
+    assert_eq!(2, solve_part_one(&["2,4,4,5,99,0".to_string()], |x| {}));
     assert_eq!(
         30,
-        solve_part_one(&["1,1,1,4,99,5,6,0,99".to_string()], |x|{})
+        solve_part_one(&["1,1,1,4,99,5,6,0,99".to_string()], |x| {})
     );
 }
 

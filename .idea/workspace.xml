@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/2019/day3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2019/day3.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2019/day2.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/day2.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2019/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,19 +24,6 @@
         <option value="Rust File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>\n</find>
-      <find>begins shift</find>
-      <find>: 52</find>
-      <find>52:</find>
-      <find>debug</find>
-      <find>hashmap</find>
-    </findStrings>
-    <replaceStrings>
-      <replace />
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,7 +55,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/2019" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="/usr/bin/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -74,15 +63,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/resources/2018" />
-      <recent name="$PROJECT_DIR$/src/aoc2018" />
-      <recent name="$PROJECT_DIR$/src/2018" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources" />
       <recent name="$PROJECT_DIR$/src/2017" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/2019" />
+      <recent name="$PROJECT_DIR$/src/aoc2019" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/resources/2018" />
+      <recent name="$PROJECT_DIR$/src/aoc2018" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -92,7 +82,7 @@
       <command value="cargo fmt" />
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.Run advent-of-code">
+  <component name="RunManager" selected="Cargo Command.fmt">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -112,9 +102,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test aoc2019::day2::examples_part_one" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Test aoc2019::day3::examples_part_one" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day2::examples_part_one -- --exact" />
+      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day3::examples_part_one -- --exact" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -138,9 +128,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test day7" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Test day3" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2018::day7" />
+      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day3" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -182,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cargo Command.Run advent-of-code" />
-        <item itemvalue="Cargo Command.Test day2" />
-        <item itemvalue="Cargo Command.Test aoc2019::day2::examples_part_one" />
         <item itemvalue="Cargo Command.fmt" />
-        <item itemvalue="Cargo Command.Test day7" />
+        <item itemvalue="Cargo Command.Run advent-of-code" />
+        <item itemvalue="Cargo Command.Test day3" />
+        <item itemvalue="Cargo Command.Test aoc2019::day3::examples_part_one" />
+        <item itemvalue="Cargo Command.Test day2" />
       </list>
     </recent_temporary>
   </component>
@@ -434,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575305420087</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="2019 day 2 part 2">
+      <created>1575305983299</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1575305983299</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,37 +491,50 @@
     <MESSAGE value="Day 6 complete" />
     <MESSAGE value="fmt and stubbed day 7" />
     <MESSAGE value="2019 day 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019 day 2" />
+    <MESSAGE value="2019 day 2 part 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="2019 day 2 part 2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2" timestamp="1575305419998">
+    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2" timestamp="1575374241457">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305419998" />
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom" timestamp="1575305912013">
+    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374241457" />
+    <state width="1874" height="242" key="GridCell.Tab.0.bottom" timestamp="1575374278798">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.bottom/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
-    <state width="1874" height="367" key="GridCell.Tab.0.center" timestamp="1575305912013">
+    <state width="1874" height="242" key="GridCell.Tab.0.bottom/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374278798" />
+    <state width="1874" height="242" key="GridCell.Tab.0.center" timestamp="1575374278798">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.center/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
-    <state width="1874" height="367" key="GridCell.Tab.0.left" timestamp="1575305912013">
+    <state width="1874" height="242" key="GridCell.Tab.0.center/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374278798" />
+    <state width="1874" height="242" key="GridCell.Tab.0.left" timestamp="1575374278798">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.left/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
-    <state width="1874" height="367" key="GridCell.Tab.0.right" timestamp="1575305912013">
+    <state width="1874" height="242" key="GridCell.Tab.0.left/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374278798" />
+    <state width="1874" height="242" key="GridCell.Tab.0.right" timestamp="1575374278798">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="1874" height="367" key="GridCell.Tab.0.right/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305912013" />
-    <state width="634" height="559" key="javadoc.popup.new" timestamp="1575305304174">
+    <state width="1874" height="242" key="GridCell.Tab.0.right/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374278798" />
+    <state x="2475" y="349" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1575374246236">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state width="634" height="559" key="javadoc.popup.new/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575305304174" />
-    <state x="2544" y="282" width="672" height="677" key="run.anything.popup" timestamp="1575304911850">
+    <state x="2475" y="349" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374246236" />
+    <state x="2403" y="214" width="944" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575373761308">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state x="2544" y="282" width="672" height="677" key="run.anything.popup/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575304911850" />
+    <state x="2403" y="214" width="944" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575373761308" />
+    <state x="2507" y="345" width="746" height="536" key="find.popup" timestamp="1575372431165">
+      <screen x="1920" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2507" y="345" width="746" height="536" key="find.popup/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575372431165" />
+    <state width="634" height="559" key="javadoc.popup.new" timestamp="1575374111341">
+      <screen x="1920" y="0" width="1920" height="1200" />
+    </state>
+    <state width="634" height="559" key="javadoc.popup.new/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374111341" />
+    <state x="2544" y="282" width="672" height="677" key="run.anything.popup" timestamp="1575374278615">
+      <screen x="1920" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2544" y="282" width="672" height="677" key="run.anything.popup/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374278615" />
   </component>
   <component name="masterDetails">
     <states>
