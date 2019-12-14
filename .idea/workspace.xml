@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2019/day3.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/day3.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2019/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,11 +77,11 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="cargo test" />
-      <command value="cargo clippy" />
       <command value="cargo fmt" />
+      <command value="cargo clippy" />
     </option>
   </component>
-  <component name="RunManager" selected="Cargo Command.fmt">
+  <component name="RunManager" selected="Cargo Command.clippy">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -90,19 +91,6 @@
     <configuration name="Run advent-of-code" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package advent-of-code --bin advent-of-code" />
-      <option name="allFeatures" value="false" />
-      <option name="nocapture" value="false" />
-      <option name="emulateTerminal" value="false" />
-      <option name="backtrace" value="SHORT" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <envs />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test aoc2019::day3::examples_part_one" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
-      <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day3::examples_part_one -- --exact" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -129,6 +117,19 @@
     <configuration name="Test day3" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day3" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="clippy" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="clippy" />
       <option name="allFeatures" value="false" />
       <option name="nocapture" value="false" />
       <option name="emulateTerminal" value="false" />
@@ -170,10 +171,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo Command.clippy" />
         <item itemvalue="Cargo Command.fmt" />
-        <item itemvalue="Cargo Command.Run advent-of-code" />
-        <item itemvalue="Cargo Command.Test day3" />
-        <item itemvalue="Cargo Command.Test aoc2019::day3::examples_part_two" />
+        <item itemvalue="Cargo Command.clippy" />
+        <item itemvalue="Cargo Command.fmt" />
         <item itemvalue="Cargo Command.fmt" />
       </list>
     </recent_temporary>
@@ -511,25 +512,30 @@
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
     <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394500443" />
-    <state width="1874" height="331" key="GridCell.Tab.0.bottom" timestamp="1575394503307">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state width="1874" height="535" key="GridCell.Tab.0.bottom" timestamp="1576317010408">
+      <screen x="0" y="27" width="1920" height="1124" />
     </state>
+    <state width="1874" height="535" key="GridCell.Tab.0.bottom/0.27.1920.1124@0.27.1920.1124" timestamp="1576317010408" />
     <state width="1874" height="331" key="GridCell.Tab.0.bottom/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394503307" />
-    <state width="1874" height="331" key="GridCell.Tab.0.center" timestamp="1575394503307">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state width="1874" height="535" key="GridCell.Tab.0.center" timestamp="1576317010407">
+      <screen x="0" y="27" width="1920" height="1124" />
     </state>
+    <state width="1874" height="535" key="GridCell.Tab.0.center/0.27.1920.1124@0.27.1920.1124" timestamp="1576317010407" />
     <state width="1874" height="331" key="GridCell.Tab.0.center/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394503307" />
-    <state width="1874" height="331" key="GridCell.Tab.0.left" timestamp="1575394503307">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state width="1874" height="535" key="GridCell.Tab.0.left" timestamp="1576317010406">
+      <screen x="0" y="27" width="1920" height="1124" />
     </state>
+    <state width="1874" height="535" key="GridCell.Tab.0.left/0.27.1920.1124@0.27.1920.1124" timestamp="1576317010406" />
     <state width="1874" height="331" key="GridCell.Tab.0.left/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394503307" />
-    <state width="1874" height="331" key="GridCell.Tab.0.right" timestamp="1575394503307">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state width="1874" height="535" key="GridCell.Tab.0.right" timestamp="1576317010407">
+      <screen x="0" y="27" width="1920" height="1124" />
     </state>
+    <state width="1874" height="535" key="GridCell.Tab.0.right/0.27.1920.1124@0.27.1920.1124" timestamp="1576317010407" />
     <state width="1874" height="331" key="GridCell.Tab.0.right/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394503307" />
-    <state x="2475" y="349" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1575374246236">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state x="555" y="354" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1576316957271">
+      <screen x="0" y="27" width="1920" height="1124" />
     </state>
+    <state x="555" y="354" key="Vcs.Push.Dialog.v2/0.27.1920.1124@0.27.1920.1124" timestamp="1576316957271" />
     <state x="2475" y="349" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374246236" />
     <state x="2403" y="214" width="944" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575373761308">
       <screen x="1920" y="0" width="1920" height="1200" />
@@ -543,9 +549,10 @@
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
     <state width="634" height="559" key="javadoc.popup.new/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394347513" />
-    <state x="2544" y="282" width="672" height="677" key="run.anything.popup" timestamp="1575394506329">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state x="624" y="291" width="672" height="635" key="run.anything.popup" timestamp="1576317010222">
+      <screen x="0" y="27" width="1920" height="1124" />
     </state>
+    <state x="624" y="291" width="672" height="635" key="run.anything.popup/0.27.1920.1124@0.27.1920.1124" timestamp="1576317010222" />
     <state x="2544" y="282" width="672" height="677" key="run.anything.popup/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394506329" />
   </component>
   <component name="masterDetails">
