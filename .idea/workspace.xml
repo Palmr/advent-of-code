@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitlab-ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.gitlab-ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2019/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -444,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575374295485</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="fmt">
+      <created>1576317034675</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1576317034676</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,19 +504,20 @@
     <MESSAGE value="Moved year run commands into the mod and cut down day impl exposure" />
     <MESSAGE value="Day 5 part one" />
     <MESSAGE value="Day 5 part two" />
-    <MESSAGE value="fmt" />
     <MESSAGE value="Stubbed day 6" />
     <MESSAGE value="Day 6 complete" />
     <MESSAGE value="fmt and stubbed day 7" />
     <MESSAGE value="2019 day 2" />
     <MESSAGE value="2019 day 2 part 2" />
     <MESSAGE value="2019 day 3 part 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="2019 day 3 part 1" />
+    <MESSAGE value="fmt" />
+    <option name="LAST_COMMIT_MESSAGE" value="fmt" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2" timestamp="1575394500443">
-      <screen x="1920" y="0" width="1920" height="1200" />
+    <state x="533" y="220" width="844" height="822" key="CommitChangelistDialog2" timestamp="1576317034454">
+      <screen x="0" y="27" width="1920" height="1124" />
     </state>
+    <state x="533" y="220" key="CommitChangelistDialog2/0.27.1920.1124@0.27.1920.1124" timestamp="1576317034454" />
     <state x="2453" y="206" width="844" height="822" key="CommitChangelistDialog2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394500443" />
     <state width="1874" height="535" key="GridCell.Tab.0.bottom" timestamp="1576317010408">
       <screen x="0" y="27" width="1920" height="1124" />
@@ -532,10 +539,10 @@
     </state>
     <state width="1874" height="535" key="GridCell.Tab.0.right/0.27.1920.1124@0.27.1920.1124" timestamp="1576317010407" />
     <state width="1874" height="331" key="GridCell.Tab.0.right/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575394503307" />
-    <state x="555" y="354" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1576316957271">
+    <state x="555" y="354" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1576317046454">
       <screen x="0" y="27" width="1920" height="1124" />
     </state>
-    <state x="555" y="354" key="Vcs.Push.Dialog.v2/0.27.1920.1124@0.27.1920.1124" timestamp="1576316957271" />
+    <state x="555" y="354" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1124@0.27.1920.1124" timestamp="1576317046454" />
     <state x="2475" y="349" width="800" height="535" key="Vcs.Push.Dialog.v2/1920.0.1920.1200/0.27.1920.1173@1920.0.1920.1200" timestamp="1575374246236" />
     <state x="2403" y="214" width="944" height="805" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1575373761308">
       <screen x="1920" y="0" width="1920" height="1200" />
