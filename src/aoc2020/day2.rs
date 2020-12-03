@@ -66,10 +66,7 @@ fn split_input(input: &String) -> (usize, usize, char, String) {
 
 fn is_password_valid_policy1(input: &(usize, usize, char, String)) -> bool {
     let (low, high, char_test, password) = input;
-    let char_test_count = &password
-        .chars()
-        .filter(|c| c == char_test)
-        .count();
+    let char_test_count = &password.chars().filter(|c| c == char_test).count();
 
     char_test_count >= low && char_test_count <= high
 }
@@ -80,12 +77,8 @@ fn is_password_valid_policy2(input: &(usize, usize, char, String)) -> bool {
     let pos1_char = password.chars().nth(pos1 - 1);
     let pos2_char = password.chars().nth(pos2 - 1);
 
-    let pos1_has_char = pos1_char
-        .map(|c| &c == char_test)
-        .unwrap_or(false);
-    let pos2_has_char = pos2_char
-        .map(|c| &c == char_test)
-        .unwrap_or(false);
+    let pos1_has_char = pos1_char.map(|c| &c == char_test).unwrap_or(false);
+    let pos2_has_char = pos2_char.map(|c| &c == char_test).unwrap_or(false);
 
     pos1_has_char ^ pos2_has_char
 }

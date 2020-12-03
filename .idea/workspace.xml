@@ -4,10 +4,7 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2020/day2.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2020/day2.rs" afterDir="false" />
-    </list>
+    <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,7 +215,7 @@
       <updated>1543503692850</updated>
       <workItem from="1607015772078" duration="917000" />
       <workItem from="1607018068654" duration="181000" />
-      <workItem from="1607031256007" duration="1263000" />
+      <workItem from="1607031256007" duration="1567000" />
     </task>
     <task id="LOCAL-00001" summary="2017 day 1">
       <created>1543506355096</created>
@@ -465,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607015961687</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Cleaning">
+      <created>1607032773221</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1607032773221</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -542,7 +546,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="gitlab ci" />
     <MESSAGE value="clippy" />
     <MESSAGE value="2018 day 2" />
     <MESSAGE value="Moved input into files rather than consts" />
@@ -567,7 +570,8 @@
     <MESSAGE value="Cleanup&#10;&#10;# Conflicts:&#10;#&#9;src/aoc2019/mod.rs" />
     <MESSAGE value="Cleanup!" />
     <MESSAGE value="Fix tests n such" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix tests n such" />
+    <MESSAGE value="Cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaning" />
   </component>
   <component name="masterDetails">
     <states>
