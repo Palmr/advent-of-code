@@ -52,7 +52,7 @@ use regex::Regex;
 ///
 /// How many passwords are valid according to the new interpretation of the policies?
 
-fn split_input(input: &String) -> (usize, usize, char, String) {
+fn split_input(input: &str) -> (usize, usize, char, String) {
     let re = Regex::new(r"^(\d+)-(\d+) ([a-z]): (.+)$").unwrap();
 
     let chunks = re.captures(input).unwrap();
@@ -86,6 +86,7 @@ fn is_password_valid_policy2(input: &(usize, usize, char, String)) -> bool {
 pub fn solve_part_one(input: &[String]) -> usize {
     input
         .iter()
+        .map(String::as_str)
         .map(split_input)
         .filter(|split| is_password_valid_policy1(split))
         .count()
@@ -94,6 +95,7 @@ pub fn solve_part_one(input: &[String]) -> usize {
 pub fn solve_part_two(input: &[String]) -> usize {
     input
         .iter()
+        .map(String::as_str)
         .map(split_input)
         .filter(|split| is_password_valid_policy2(split))
         .count()

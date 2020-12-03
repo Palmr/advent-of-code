@@ -71,10 +71,6 @@
 /// What do you get if you multiply together the number of trees encountered on each of the listed slopes?
 ///
 
-pub fn solve_part_one(input: &[String]) -> usize {
-    traverse_mountain(input, 3, 1)
-}
-
 fn traverse_mountain(input: &[String], step_x: usize, step_y: usize) -> usize {
     let tree_vec: Vec<Vec<bool>> = input
         .iter()
@@ -93,6 +89,10 @@ fn traverse_mountain(input: &[String], step_x: usize, step_y: usize) -> usize {
     }
 
     trees
+}
+
+pub fn solve_part_one(input: &[String]) -> usize {
+    traverse_mountain(input, 3, 1)
 }
 
 pub fn solve_part_two(input: &[String]) -> usize {
