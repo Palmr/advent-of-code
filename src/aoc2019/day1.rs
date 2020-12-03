@@ -72,7 +72,10 @@ fn calculate_fuel(mass: isize) -> isize {
 }
 
 pub fn solve_part_one(input: &[String]) -> isize {
-    parse_input(input).into_iter().map(calculate_fuel).sum()
+    parse_input(input)
+        .into_iter()
+        .map(calculate_fuel)
+        .sum()
 }
 
 fn fuel_fuel(module_fuel_mass: isize) -> isize {

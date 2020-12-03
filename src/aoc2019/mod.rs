@@ -15,6 +15,12 @@ pub fn aoc2019() {
     //    );
 
     println!(
+        "\tDay 1: Part One={}, Part Two={}",
+        day1::solve_part_one(&util::read_file_input("resources/2019/day1.txt")),
+        day1::solve_part_two(&util::read_file_input("resources/2019/day1.txt")),
+    );
+
+    println!(
         "\tDay 2: Part One={}, Part Two={}",
         day2::solve_part_one(
             &util::read_file_input("resources/2019/day2.txt"),
