@@ -136,7 +136,7 @@ fn parse_input(input: &[String]) -> Vec<GuardLog> {
         .map(|l| re.captures(l).unwrap())
         //        .inspect(|c| println!("Captured: {:?}", c))
         .map(|c| GuardLog {
-            guard_id: c.get(6).and_then(|m| Some(m.as_str().parse().unwrap())),
+            guard_id: c.get(6).map(|m| m.as_str().parse().unwrap()),
             state: c
                 .get(7)
                 .map(|m| match m.as_str() {
@@ -335,7 +335,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
                     gl
                 );
             }
-            let mut minute_slept_map = guard_minute_sleep_frequency
+            let minute_slept_map = guard_minute_sleep_frequency
                 .entry(gl.guard_id.unwrap())
                 .or_insert_with(HashMap::new);
             for m in started_sleeping_minute.unwrap()..gl.minute {
