@@ -1,3 +1,5 @@
+use regex::Regex;
+
 /// --- Day 2: Password Philosophy ---
 ///
 /// Your flight departs in a few days from the coastal airport; the easiest way down to the coast
@@ -50,40 +52,39 @@
 ///
 /// How many passwords are valid according to the new interpretation of the policies?
 
-fn split_input(input: &str, delim: char) -> (&str, &str) {
-    let mut splitter = input.splitn(2, delim);
-    let first = splitter.next().unwrap().trim();
-    let second = splitter.next().unwrap().trim();
-    (first.trim(), second)
+fn split_input(input: &String) -> (usize, usize, char, String) {
+    let re = Regex::new(r"^(\d+)-(\d+) ([a-z]): (.+)$").unwrap();
+
+    let chunks = re.captures(input).unwrap();
+    let rule1: usize = chunks[1].parse().unwrap();
+    let rule2: usize = chunks[2].parse().unwrap();
+    let char_test: char = chunks[3].parse().unwrap();
+    let password = chunks[4].to_string();
+
+    (rule1, rule2, char_test, password)
 }
 
-fn is_password_valid_policy1(policy: &str, password: &str) -> bool {
-    let (range, char_test) = split_input(policy, ' ');
-    let (low, high) = split_input(range, '-');
-    let char_test_count = password
+fn is_password_valid_policy1(input: &(usize, usize, char, String)) -> bool {
+    let (low, high, char_test, password) = input;
+    let char_test_count = &password
         .chars()
-        .filter(|c| c == &char_test.chars().next().unwrap())
+        .filter(|c| c == char_test)
         .count();
 
-    char_test_count >= low.parse::<usize>().unwrap()
-        && char_test_count <= high.parse::<usize>().unwrap()
+    char_test_count >= low && char_test_count <= high
 }
 
-fn is_password_valid_policy2(policy: &str, password: &str) -> bool {
-    let (positions, char_test) = split_input(policy, ' ');
-    let (pos1, pos2) = split_input(positions, '-');
-
-    let pos1 = pos1.parse::<usize>().unwrap();
-    let pos2 = pos2.parse::<usize>().unwrap();
+fn is_password_valid_policy2(input: &(usize, usize, char, String)) -> bool {
+    let (pos1, pos2, char_test, password) = input;
 
     let pos1_char = password.chars().nth(pos1 - 1);
     let pos2_char = password.chars().nth(pos2 - 1);
 
     let pos1_has_char = pos1_char
-        .map(|c| c == char_test.chars().next().unwrap())
+        .map(|c| &c == char_test)
         .unwrap_or(false);
     let pos2_has_char = pos2_char
-        .map(|c| c == char_test.chars().next().unwrap())
+        .map(|c| &c == char_test)
         .unwrap_or(false);
 
     pos1_has_char ^ pos2_has_char
@@ -92,18 +93,16 @@ fn is_password_valid_policy2(policy: &str, password: &str) -> bool {
 pub fn solve_part_one(input: &[String]) -> usize {
     input
         .iter()
-        .map(String::as_str)
-        .map(|x| split_input(x, ':'))
-        .filter(|(pol, pass)| is_password_valid_policy1(pol, pass))
+        .map(split_input)
+        .filter(|split| is_password_valid_policy1(split))
         .count()
 }
 
 pub fn solve_part_two(input: &[String]) -> usize {
     input
         .iter()
-        .map(String::as_str)
-        .map(|x| split_input(x, ':'))
-        .filter(|(pol, pass)| is_password_valid_policy2(pol, pass))
+        .map(split_input)
+        .filter(|split| is_password_valid_policy2(split))
         .count()
 }
 

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2018/day7.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day7.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2020/day2.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2020/day2.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -96,7 +96,7 @@
       <command value="cargo clippy" />
     </option>
   </component>
-  <component name="RunManager" selected="Cargo.Test aoc2018::day5::examples_part_one">
+  <component name="RunManager" selected="Cargo.Test aoc2020::day2::examples_part_two">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -127,9 +127,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test aoc2019::day2::examples_part_one" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Test aoc2020::day2::examples_part_one" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day2::examples_part_one -- --exact" />
+      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2020::day2::examples_part_one -- --exact" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -139,9 +139,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test aoc2020::day3::examples_part_one" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Test aoc2020::day2::examples_part_two" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2020::day3::examples_part_one -- --exact" />
+      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2020::day2::examples_part_two -- --exact" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -151,9 +151,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test aoc2020::day3::examples_part_two" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Test day2" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2020::day3::examples_part_two -- --exact" />
+      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2020::day2" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -181,11 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Cargo.Test aoc2020::day2::examples_part_two" />
+        <item itemvalue="Cargo.Test day2" />
+        <item itemvalue="Cargo.Test aoc2020::day2::examples_part_one" />
         <item itemvalue="Cargo.Test aoc2018::day5::examples_part_one" />
         <item itemvalue="Cargo.Test aoc2018::day5::examples_part_two" />
-        <item itemvalue="Cargo.Test aoc2019::day2::examples_part_one" />
-        <item itemvalue="Cargo.Test aoc2020::day3::examples_part_two" />
-        <item itemvalue="Cargo.Test aoc2020::day3::examples_part_one" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +216,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543503692850</updated>
-      <workItem from="1607015772078" duration="135000" />
+      <workItem from="1607015772078" duration="917000" />
+      <workItem from="1607018068654" duration="181000" />
+      <workItem from="1607031256007" duration="1263000" />
     </task>
     <task id="LOCAL-00001" summary="2017 day 1">
       <created>1543506355096</created>
@@ -456,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607015363849</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Fix tests n such">
+      <created>1607015961687</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1607015961687</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -533,7 +542,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="2018 day 1" />
     <MESSAGE value="gitlab ci" />
     <MESSAGE value="clippy" />
     <MESSAGE value="2018 day 2" />
@@ -558,7 +566,8 @@
     <MESSAGE value="2019 - day 5&#10;&#10;# Conflicts:&#10;#&#9;src/aoc2019/mod.rs" />
     <MESSAGE value="Cleanup&#10;&#10;# Conflicts:&#10;#&#9;src/aoc2019/mod.rs" />
     <MESSAGE value="Cleanup!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup!" />
+    <MESSAGE value="Fix tests n such" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix tests n such" />
   </component>
   <component name="masterDetails">
     <states>
