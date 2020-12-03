@@ -69,7 +69,6 @@ pub fn solve_part_two(input: &[String]) -> usize {
             .replace(c.to_uppercase().next().unwrap(), "");
         let l = react(&x).len();
         if l < shortest_len {
-            //            println!("Shorter: {} - {}", c, l);
             shortest_len = l;
         }
     }
@@ -78,36 +77,42 @@ pub fn solve_part_two(input: &[String]) -> usize {
 }
 
 fn react(input: &str) -> String {
-    let mut reduction = reduce(input);
-    while reduction.len() >= 2 && reduction != reduce(&reduction) {
-        reduction = reduce(&reduction);
-    }
-    reduction
+    let acc = String::with_capacity(input.len());
+
+    input.chars().fold(acc, |mut acc, c| -> String {
+        acc.push(c);
+
+        loop {
+            if acc.len() >= 2 {
+                let mut chars = acc.chars().rev();
+                let c1: char = chars.next().unwrap();
+                let c2: char = chars.next().unwrap();
+
+                if c1 != c2
+                    && c1.to_lowercase().next().unwrap() == c2.to_lowercase().next().unwrap()
+                {
+                    acc.pop();
+                    acc.pop();
+                } else {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+        acc
+    })
 }
 
-fn reduce(input: &str) -> String {
-    let mut reacted_polymer = String::new();
-    let chars: Vec<char> = input.chars().collect();
-
-    let mut idx = 0;
-    while idx < chars.len() - 1 {
-        let c1: char = chars[idx];
-        let c2: char = chars[idx + 1];
-
-        if c1 != c2 && c1.to_lowercase().next().unwrap() == c2.to_lowercase().next().unwrap() {
-            // react and leave nothing
-            idx += 2;
-        } else {
-            // don't react,
-            reacted_polymer.push(c1);
-            idx += 1;
-        }
-    }
-    if idx < chars.len() {
-        reacted_polymer.push(chars[idx]);
-    }
-
-    reacted_polymer
+#[test]
+fn test_react() {
+    assert_eq!("aa", react("aa"));
+    assert_eq!("AA", react("AA"));
+    assert_eq!("", react("aA"));
+    assert_eq!("b", react("aAb"));
+    assert_eq!("b", react("baA"));
+    assert_eq!("abA", react("abA"));
+    assert_eq!("", react("abBA"));
 }
 
 #[test]
