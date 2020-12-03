@@ -124,8 +124,8 @@ pub fn solve_part_two(input: &[String]) -> isize {
 
     let wire1 = realise_wire(wire1);
     let wire2 = realise_wire(wire2);
-    println!("wire1 coords: {:?}", wire1);
-    println!("wire2 coords: {:?}", wire2);
+    // println!("wire1 coords: {:?}", wire1);
+    // println!("wire2 coords: {:?}", wire2);
 
     find_minimum_length_intersection(wire1, wire2)
 }

@@ -136,7 +136,7 @@ fn parse_input(input: &[String]) -> Vec<Coord> {
             x: c.get(1).map_or(0, |m| m.as_str().parse().unwrap()),
             y: c.get(2).map_or(0, |m| m.as_str().parse().unwrap()),
         })
-        .inspect(|c| println!("Parsed coord: {:?}", c))
+        // .inspect(|c| println!("Parsed coord: {:?}", c))
         .collect()
 }
 
