@@ -149,7 +149,7 @@ pub fn solve_part_one(input: &[String]) -> isize {
     let max_y = coords.iter().map(|c| c.y).max().unwrap();
     //    println!("Bounds: {},{} - {},{}", min_x, min_y, max_x, max_y);
 
-        let mut coord_areas: Vec<CoordSize> = coords
+    let mut coord_areas: Vec<CoordSize> = coords
         .iter()
         .map(|c| CoordSize {
             id: c.id.unwrap(),
@@ -162,9 +162,15 @@ pub fn solve_part_one(input: &[String]) -> isize {
             // Find distance to each coord (x-delta + y-delta)
             let coord_distances: Vec<(Option<usize>, isize)> = coords
                 .iter()
-                .map(|coord|{
+                .map(|coord| {
                     (
-                        coord.id, manhattan_distance(coord, &Coord { id: None,x: gx, y: gy ,
+                        coord.id,
+                        manhattan_distance(
+                            coord,
+                            &Coord {
+                                id: None,
+                                x: gx,
+                                y: gy,
                             },
                         ),
                     )
