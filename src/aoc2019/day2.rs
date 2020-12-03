@@ -82,18 +82,24 @@ pub fn solve_part_two(input: &[String]) -> isize {
     -1
 }
 
+
 #[test]
 fn examples_part_one() {
+    fn no_mangle(_x: &mut Vec<isize>)
+    {
+
+    }
+
     assert_eq!(
         3500,
-        solve_part_one(&["1,9,10,3,2,3,11,0,99,30,40,50".to_string()], |x| {})
+        solve_part_one(&["1,9,10,3,2,3,11,0,99,30,40,50".to_string()], no_mangle)
     );
-    assert_eq!(2, solve_part_one(&["1,0,0,0,99".to_string()], |x| {}));
-    assert_eq!(2, solve_part_one(&["2,3,0,3,99".to_string()], |x| {}));
-    assert_eq!(2, solve_part_one(&["2,4,4,5,99,0".to_string()], |x| {}));
+    assert_eq!(2, solve_part_one(&["1,0,0,0,99".to_string()], no_mangle));
+    assert_eq!(2, solve_part_one(&["2,3,0,3,99".to_string()], no_mangle));
+    assert_eq!(2, solve_part_one(&["2,4,4,5,99,0".to_string()], no_mangle));
     assert_eq!(
         30,
-        solve_part_one(&["1,1,1,4,99,5,6,0,99".to_string()], |x| {})
+        solve_part_one(&["1,1,1,4,99,5,6,0,99".to_string()], no_mangle)
     );
 }
 

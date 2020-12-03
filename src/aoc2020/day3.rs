@@ -100,7 +100,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
 
     let mut trees_seen = Vec::new();
     for (step_x, step_y) in slopes {
-        let trees = traverse_mountain(input.clone(), step_x, step_y);
+        let trees = traverse_mountain(input, step_x, step_y);
         trees_seen.push(trees)
     }
 

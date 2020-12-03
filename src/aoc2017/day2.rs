@@ -65,7 +65,7 @@ fn split_row(row: &str) -> Vec<i32> {
 pub fn solve_part_one(spreadsheet: &str) -> i32 {
     calculate_checksum(spreadsheet, |row: &Vec<i32>| {
         let mut r = row.clone();
-        r.sort();
+        r.sort_unstable();
         r.last().unwrap() - r.first().unwrap() // shudders
     })
 }
@@ -73,7 +73,7 @@ pub fn solve_part_one(spreadsheet: &str) -> i32 {
 pub fn solve_part_two(spreadsheet: &str) -> i32 {
     let row_checksum = |row: &Vec<i32>| {
         let mut search_row = row.clone();
-        search_row.sort();
+        search_row.sort_unstable();
 
         while !search_row.is_empty() {
             let number_1 = search_row.pop().unwrap();
