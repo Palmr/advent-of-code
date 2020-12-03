@@ -1,3 +1,5 @@
+use util::parse_int_csv;
+
 pub fn part_1_mangling(input_codes: &mut Vec<isize>) {
     input_codes[1] = 12;
     input_codes[2] = 2;
@@ -7,8 +9,7 @@ pub fn solve_part_one<F>(input: &[String], mangle: F) -> isize
 where
     F: Fn(&mut Vec<isize>),
 {
-    let csv_intcode = input.get(0).unwrap();
-    let mut int_codes: Vec<isize> = csv_intcode.split(',').map(|i| i.parse().unwrap()).collect();
+    let mut int_codes = parse_int_csv(input.get(0).unwrap());
 
     run_vm(&mut int_codes, mangle)
 }

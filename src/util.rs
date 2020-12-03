@@ -11,6 +11,10 @@ pub fn read_file_input(path: &str) -> Vec<String> {
         .collect()
 }
 
+pub fn parse_int_csv(integer_csv: &str) -> Vec<isize> {
+    integer_csv.split(',').map(|i| i.parse().unwrap()).collect()
+}
+
 #[test]
 fn test_reading_file_input() {
     assert_eq!(2, read_file_input("resources/test.txt").len());
