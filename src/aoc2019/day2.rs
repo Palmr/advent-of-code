@@ -82,13 +82,9 @@ pub fn solve_part_two(input: &[String]) -> isize {
     -1
 }
 
-
 #[test]
 fn examples_part_one() {
-    fn no_mangle(_x: &mut Vec<isize>)
-    {
-
-    }
+    fn no_mangle(_x: &mut Vec<isize>) {}
 
     assert_eq!(
         3500,

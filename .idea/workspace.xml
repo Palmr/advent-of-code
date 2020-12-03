@@ -6,28 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day10.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day11.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day12.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day13.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day14.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day15.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day16.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day17.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day18.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day19.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day23.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day24.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day25.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day8.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/2018/day9.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2017/day2.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2017/day2.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2018/day5.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day5.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2019/day2.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/day2.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2020/day3.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2020/day3.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2018/day7.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day7.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +62,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -95,6 +76,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -234,6 +216,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543503692850</updated>
+      <workItem from="1607015772078" duration="135000" />
     </task>
     <task id="LOCAL-00001" summary="2017 day 1">
       <created>1543506355096</created>
@@ -466,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607014238166</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Cleanup!">
+      <created>1607015363849</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1607015363849</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -502,7 +492,7 @@
     </history-entry>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">
