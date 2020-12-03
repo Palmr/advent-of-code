@@ -1,6 +1,6 @@
 ///
 
-fn parse_digits(guess: &i64) -> Vec<u32> {
+fn parse_digits(guess: i64) -> Vec<u32> {
     guess
         .to_string()
         .chars()
@@ -8,7 +8,7 @@ fn parse_digits(guess: &i64) -> Vec<u32> {
         .collect()
 }
 
-fn is_valid_password(guess: &i64) -> bool {
+fn is_valid_password(guess: i64) -> bool {
     let digits = parse_digits(guess);
 
     if digits.len() != 6 {
@@ -19,7 +19,7 @@ fn is_valid_password(guess: &i64) -> bool {
         .iter()
         .take(digits.len() - 1)
         .enumerate()
-        .any(|(i, d)| d > &digits[i + 1])
+        .any(|(i, d)| *d > digits[i + 1])
     {
         //        println!("{} has digits not always increasing", guess);
         return false;
@@ -29,7 +29,7 @@ fn is_valid_password(guess: &i64) -> bool {
         .iter()
         .take(digits.len() - 1)
         .enumerate()
-        .any(|(i, d)| d == &digits[i + 1])
+        .any(|(i, d)| *d == digits[i + 1])
     {
         //        println!("{} has duplicate adjacent", guess);
         return true;
@@ -38,7 +38,7 @@ fn is_valid_password(guess: &i64) -> bool {
     false
 }
 
-fn is_valid_password_extra(guess: &i64) -> bool {
+fn is_valid_password_extra(guess: i64) -> bool {
     if is_valid_password(guess) {
         let digits = parse_digits(guess);
 
@@ -71,7 +71,7 @@ pub fn solve_part_one(input: &[String]) -> String {
     let lower: i64 = bounds[0].parse().unwrap();
     let upper: i64 = bounds[1].parse().unwrap();
 
-    let potential_passwords = (lower..=upper).filter(is_valid_password).count();
+    let potential_passwords = (lower..=upper).filter(|g| is_valid_password(*g)).count();
 
     potential_passwords.to_string()
 }
@@ -81,21 +81,23 @@ pub fn solve_part_two(input: &[String]) -> String {
     let lower: i64 = bounds[0].parse().unwrap();
     let upper: i64 = bounds[1].parse().unwrap();
 
-    let potential_passwords = (lower..=upper).filter(is_valid_password_extra).count();
+    let potential_passwords = (lower..=upper)
+        .filter(|g| is_valid_password_extra(*g))
+        .count();
 
     potential_passwords.to_string()
 }
 
 #[test]
 fn examples_part_one() {
-    assert_eq!(true, is_valid_password(&111111));
-    assert_eq!(false, is_valid_password(&223450));
-    assert_eq!(false, is_valid_password(&123789));
+    assert_eq!(true, is_valid_password(111111));
+    assert_eq!(false, is_valid_password(223450));
+    assert_eq!(false, is_valid_password(123789));
 }
 
 #[test]
 fn examples_part_two() {
-    assert_eq!(true, is_valid_password_extra(&112233));
-    assert_eq!(false, is_valid_password_extra(&123444));
-    assert_eq!(true, is_valid_password_extra(&111122));
+    assert_eq!(true, is_valid_password_extra(112233));
+    assert_eq!(false, is_valid_password_extra(123444));
+    assert_eq!(true, is_valid_password_extra(111122));
 }

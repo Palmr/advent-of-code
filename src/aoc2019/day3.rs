@@ -22,7 +22,7 @@ impl Move {
     }
 }
 
-fn parse_wire(input: &String) -> Vec<Move> {
+fn parse_wire(input: &str) -> Vec<Move> {
     input.split(',').map(|e| Move::parse(&e)).collect()
 }
 
@@ -56,7 +56,7 @@ fn realise_wire(wire: Vec<Move>) -> HashSet<WireCoord> {
     for wire_move in wire {
         let mut dx: isize = 0;
         let mut dy: isize = 0;
-        let mut dist = match wire_move {
+        let dist = match wire_move {
             Move::Left(distance) => {
                 dx = -1;
                 distance
@@ -75,7 +75,7 @@ fn realise_wire(wire: Vec<Move>) -> HashSet<WireCoord> {
             }
         };
 
-        for i in 0..dist {
+        for _i in 0..dist {
             x += dx;
             y += dy;
             length += 1;
@@ -111,35 +111,23 @@ fn find_minimum_length_intersection(wire1: HashSet<WireCoord>, wire2: HashSet<Wi
 pub fn solve_part_one(input: &[String]) -> isize {
     let wire1 = parse_wire(&input[0]);
     let wire2 = parse_wire(&input[1]);
-    // println!("wire1 parsed: {:?}", wire1);
-    // println!("wire2 parsed: {:?}", wire2);
 
     let wire1 = realise_wire(wire1);
     let wire2 = realise_wire(wire2);
-    // println!("wire1 coords: {:?}", wire1);
-    // println!("wire2 coords: {:?}", wire2);
 
-    let result = find_minimum_manhattan_distance_intersection(wire1, wire2);
-    //    println!("minimum_intersection: {:?}", result);
-
-    result
+    find_minimum_manhattan_distance_intersection(wire1, wire2)
 }
 
 pub fn solve_part_two(input: &[String]) -> isize {
     let wire1 = parse_wire(&input[0]);
     let wire2 = parse_wire(&input[1]);
-    // println!("wire1 parsed: {:?}", wire1);
-    // println!("wire2 parsed: {:?}", wire2);
 
     let wire1 = realise_wire(wire1);
     let wire2 = realise_wire(wire2);
     println!("wire1 coords: {:?}", wire1);
     println!("wire2 coords: {:?}", wire2);
 
-    let result = find_minimum_length_intersection(wire1, wire2);
-    //    println!("minimum_intersection: {:?}", result);
-
-    result
+    find_minimum_length_intersection(wire1, wire2)
 }
 
 #[test]

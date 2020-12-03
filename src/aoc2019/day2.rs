@@ -65,8 +65,6 @@ pub fn solve_part_two(input: &[String]) -> isize {
     let csv_intcode = input.get(0).unwrap();
     let int_codes: Vec<isize> = csv_intcode.split(',').map(|i| i.parse().unwrap()).collect();
 
-    let mut answers: Vec<(isize, isize)> = Vec::new();
-
     for i in 0..=99 {
         for j in 0..=99 {
             let mut cloned_codes = int_codes.clone();
@@ -75,14 +73,11 @@ pub fn solve_part_two(input: &[String]) -> isize {
                 ic[2] = j
             });
 
-            if result == 19690720 {
+            if result == 19_690_720 {
                 return 100 * i + j;
-                //                answers.push((i, j));
             }
         }
     }
-
-    //    println!("Answers: {:?}", answers);
 
     -1
 }

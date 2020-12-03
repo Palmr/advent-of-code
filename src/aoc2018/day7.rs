@@ -1,8 +1,8 @@
-use std::collections::HashMap;
+//use std::collections::HashMap;
 
-use regex::Regex;
-use std::collections::BTreeSet;
-use std::collections::HashSet;
+//use regex::Regex;
+//use std::collections::BTreeSet;
+//use std::collections::HashSet;
 
 /// --- Day 7: The Sum of Its Parts ---
 ///
@@ -61,72 +61,74 @@ use std::collections::HashSet;
 /// So, in this example, the correct order is CABDFE.
 ///
 /// In what order should the steps in your instructions be completed?
-#[derive(Debug)]
-struct Node {
-    id: String,
-    finishes_before: Vec<String>,
-    prerequisites: Vec<String>,
-}
 
-#[derive(Debug)]
-struct Instruction {
-    prerequisite: String,
-    node_id: String,
-}
 
-fn parse_input(input: &[String]) -> Vec<Instruction> {
-    let re = Regex::new(r"Step ([A-Z]) must be finished before step ([A-Z]) can begin.").unwrap();
+//#[derive(Debug)]
+//struct Node {
+//    id: String,
+//    finishes_before: Vec<String>,
+//    prerequisites: Vec<String>,
+//}
+//
+//#[derive(Debug)]
+//struct Instruction {
+//    prerequisite: String,
+//    node_id: String,
+//}
+//
+//fn parse_input(input: &[String]) -> Vec<Instruction> {
+//    let re = Regex::new(r"Step ([A-Z]) must be finished before step ([A-Z]) can begin.").unwrap();
+//
+//    input
+//        .iter()
+//        //        .inspect(|l| println!("To parse: {}", l))
+//        .map(|l| re.captures(l).unwrap())
+//        .map(|c| Instruction {
+//            prerequisite: c.get(1).map_or("???".to_owned(), |m| m.as_str().to_owned()),
+//            node_id: c.get(2).map_or("???".to_owned(), |m| m.as_str().to_owned()),
+//        })
+//        .inspect(|i| println!("Parsed Instruction: {:?}", i))
+//        .collect()
+//}
 
-    input
-        .iter()
-        //        .inspect(|l| println!("To parse: {}", l))
-        .map(|l| re.captures(l).unwrap())
-        .map(|c| Instruction {
-            prerequisite: c.get(1).map_or("???".to_owned(), |m| m.as_str().to_owned()),
-            node_id: c.get(2).map_or("???".to_owned(), |m| m.as_str().to_owned()),
-        })
-        .inspect(|i| println!("Parsed Instruction: {:?}", i))
-        .collect()
-}
-
-pub fn solve_part_one(input: &[String]) -> String {
-    let instructions = parse_input(input);
-
-    let mut graph: HashMap<String, Node> = HashMap::new();
-    instructions.iter().for_each(|i| {
-        graph
-            .entry(i.prerequisite.clone())
-            .or_insert(Node {
-                id: i.prerequisite.clone(),
-                finishes_before: Vec::new(),
-                prerequisites: Vec::new(),
-            })
-            .finishes_before
-            .push(i.node_id.clone());
-        graph
-            .entry(i.node_id.clone())
-            .or_insert(Node {
-                id: i.node_id.clone(),
-                finishes_before: Vec::new(),
-                prerequisites: Vec::new(),
-            })
-            .prerequisites
-            .push(i.prerequisite.clone());
-    });
-
-    // Find start node, one with no pre-requesites
-    let mut working_node = graph
-        .iter()
-        .find_map(|(_, v)| {
-            if v.prerequisites.is_empty() {
-                Some(v)
-            } else {
-                None
-            }
-        })
-        .unwrap();
-
-    let mut output = String::new();
+pub fn solve_part_one(_input: &[String]) -> String {
+    //    let instructions = parse_input(input);
+    //
+    //    let mut graph: HashMap<String, Node> = HashMap::new();
+    //    instructions.iter().for_each(|i| {
+    //        graph
+    //            .entry(i.prerequisite.clone())
+    //            .or_insert(Node {
+    //                id: i.prerequisite.clone(),
+    //                finishes_before: Vec::new(),
+    //                prerequisites: Vec::new(),
+    //            })
+    //            .finishes_before
+    //            .push(i.node_id.clone());
+    //        graph
+    //            .entry(i.node_id.clone())
+    //            .or_insert(Node {
+    //                id: i.node_id.clone(),
+    //                finishes_before: Vec::new(),
+    //                prerequisites: Vec::new(),
+    //            })
+    //            .prerequisites
+    //            .push(i.prerequisite.clone());
+    //    });
+    //
+    //    // Find start node, one with no pre-requesites
+    //    let mut working_node = graph
+    //        .iter()
+    //        .find_map(|(_, v)| {
+    //            if v.prerequisites.is_empty() {
+    //                Some(v)
+    //            } else {
+    //                None
+    //            }
+    //        })
+    //        .unwrap();
+    //
+    //    let mut output = String::new();
 
     //    let mut options = Vec::new();
     //
@@ -161,7 +163,9 @@ pub fn solve_part_one(input: &[String]) -> String {
     ////        }
     //    }
 
-    output
+    //    output
+
+    "TODO".to_string()
 }
 
 pub fn solve_part_two(_input: &[String]) -> String {

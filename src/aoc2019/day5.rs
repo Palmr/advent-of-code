@@ -9,7 +9,7 @@ enum ParameterMode {
 }
 
 impl ParameterMode {
-    pub fn get_value(&self, value: isize, memory: &Vec<isize>) -> isize {
+    pub fn get_value(&self, value: isize, memory: &[isize]) -> isize {
         match self {
             ParameterMode::PositionMode => memory[value as usize],
             ParameterMode::ImmediateMode => value,
@@ -145,48 +145,49 @@ where
         let opcode = memory[pc];
 
         let instruction = parse_opcode(opcode, pc);
-//        println!(
-//            "State: PC={} : INSTR={:?} : MEM={:?}",
-//            pc, instruction, memory
-//        );
+        //        println!(
+        //            "State: PC={} : INSTR={:?} : MEM={:?}",
+        //            pc, instruction, memory
+        //        );
 
         let mut jumped = false;
         match &instruction {
             Instruction::Halt => break,
-            Instruction::Add(a1, a2, a3) => {
+            Instruction::Add(a1, a2, _a3) => {
                 let arg_1 = a1.get_value(memory[pc + 1], memory);
                 let arg_2 = a2.get_value(memory[pc + 2], memory);
                 let arg_3 = memory[pc + 3]; // Result args are position only
 
-//                println!("ADD: arg_1={}, arg_2={}, arg_3={}", arg_1, arg_2, arg_3);
+                //                println!("ADD: arg_1={}, arg_2={}, arg_3={}", arg_1, arg_2, arg_3);
                 memory[arg_3 as usize] = arg_1 + arg_2;
             }
-            Instruction::Multiply(a1, a2, a3) => {
+            Instruction::Multiply(a1, a2, _a3) => {
                 let arg_1 = a1.get_value(memory[pc + 1], memory);
                 let arg_2 = a2.get_value(memory[pc + 2], memory);
                 let arg_3 = memory[pc + 3]; // Result args are position only
 
-//                println!("MUL: arg_1={}, arg_2={}, arg_3={}", arg_1, arg_2, arg_3);
+                //                println!("MUL: arg_1={}, arg_2={}, arg_3={}", arg_1, arg_2, arg_3);
                 memory[arg_3 as usize] = arg_1 * arg_2;
             }
-            Instruction::Input(a1) => {
+            Instruction::Input(_a1) => {
                 let arg_1 = memory[pc + 1];
+
                 let input = input_supplier(&pc);
 
-//                println!("INPUT: {:?}", input);
+                //                println!("INPUT: {:?}", input);
                 memory[arg_1 as usize] = input;
             }
             Instruction::Output(a1) => {
                 let arg_1 = a1.get_value(memory[pc + 1], memory);
 
-//                println!("OUTPUT: {:?}", arg_1);
+                //                println!("OUTPUT: {:?}", arg_1);
                 outputs.push(arg_1);
             }
             Instruction::JumpIfTrue(a1, a2) => {
                 let arg_1 = a1.get_value(memory[pc + 1], memory);
                 let arg_2 = a2.get_value(memory[pc + 2], memory);
 
-//                println!("JMP: arg_1={}, arg_2={}", arg_1, arg_2);
+                //                println!("JMP: arg_1={}, arg_2={}", arg_1, arg_2);
                 if arg_1 != 0 {
                     pc = arg_2 as usize;
                     jumped = true;
@@ -196,29 +197,29 @@ where
                 let arg_1 = a1.get_value(memory[pc + 1], memory);
                 let arg_2 = a2.get_value(memory[pc + 2], memory);
 
-//                println!("JNE: arg_1={}, arg_2={}", arg_1, arg_2);
+                //                println!("JNE: arg_1={}, arg_2={}", arg_1, arg_2);
                 if arg_1 == 0 {
                     pc = arg_2 as usize;
                     jumped = true;
                 }
             }
-            Instruction::LessThan(a1, a2, a3) => {
+            Instruction::LessThan(a1, a2, _a3) => {
                 let arg_1 = a1.get_value(memory[pc + 1], memory);
                 let arg_2 = a2.get_value(memory[pc + 2], memory);
                 let arg_3 = memory[pc + 3]; // Result args are position only
 
-//                println!(
-//                    "LESSTHAN: arg_1={}, arg_2={}, arg_3={}",
-//                    arg_1, arg_2, arg_3
-//                );
+                //                println!(
+                //                    "LESSTHAN: arg_1={}, arg_2={}, arg_3={}",
+                //                    arg_1, arg_2, arg_3
+                //                );
                 memory[arg_3 as usize] = if arg_1 < arg_2 { 1 } else { 0 };
             }
-            Instruction::Equals(a1, a2, a3) => {
+            Instruction::Equals(a1, a2, _a3) => {
                 let arg_1 = a1.get_value(memory[pc + 1], memory);
                 let arg_2 = a2.get_value(memory[pc + 2], memory);
                 let arg_3 = memory[pc + 3]; // Result args are position only
 
-//                println!("EQUAL: arg_1={}, arg_2={}, arg_3={}", arg_1, arg_2, arg_3);
+                //                println!("EQUAL: arg_1={}, arg_2={}, arg_3={}", arg_1, arg_2, arg_3);
                 memory[arg_3 as usize] = if arg_1 == arg_2 { 1 } else { 0 };
             }
         }
