@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4c312961-cbcd-425f-862e-d25e00752250" name="Default Changelist" comment="Stubbed day 6">
-      <change afterPath="$PROJECT_DIR$/resources/2019/day1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc2019/day1.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc2019/day_template.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/aoc2019/mod.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/2019/day4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/aoc2019/day4.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/aoc2018/day6.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2018/day6.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2019/day1.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/day1.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aoc2019/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/aoc2019/mod.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +57,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
@@ -73,15 +71,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
+      <recent name="$PROJECT_DIR$/src/2017" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/aoc2019" />
       <recent name="$PROJECT_DIR$/resources/2018" />
       <recent name="$PROJECT_DIR$/src/aoc2018" />
       <recent name="$PROJECT_DIR$/src/2018" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources" />
-      <recent name="$PROJECT_DIR$/src/2017" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -110,9 +108,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test aoc2019::day1::examples_part_two" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Test aoc2019::day4::examples_part_two" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day1::examples_part_two -- --exact" />
+      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day4::examples_part_two -- --exact" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -122,9 +120,9 @@
         <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test day1" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
+    <configuration name="Test day4" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
-      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day1" />
+      <option name="command" value="test --package advent-of-code --bin advent-of-code aoc2019::day4" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -202,6 +200,7 @@
       <option name="presentableId" value="Default" />
       <updated>1543503692850</updated>
       <workItem from="1575215445161" duration="1909000" />
+      <workItem from="1576007316372" duration="4811000" />
     </task>
     <task id="LOCAL-00001" summary="2017 day 1">
       <created>1543506355096</created>
@@ -437,26 +436,43 @@
     <option name="LAST_COMMIT_MESSAGE" value="fmt" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1550" height="282" key="GridCell.Tab.0.bottom" timestamp="1575217455164">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="3770" height="598" key="GridCell.Tab.0.bottom" timestamp="1576017649464">
+      <screen x="0" y="0" width="3840" height="2130" />
     </state>
+    <state width="3770" height="598" key="GridCell.Tab.0.bottom/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576017649464" />
     <state width="1550" height="282" key="GridCell.Tab.0.bottom/0.28.1600.872@0.28.1600.872" timestamp="1575217455164" />
-    <state width="1550" height="282" key="GridCell.Tab.0.center" timestamp="1575217455163">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="3770" height="598" key="GridCell.Tab.0.center" timestamp="1576017649464">
+      <screen x="0" y="0" width="3840" height="2130" />
     </state>
+    <state width="3770" height="598" key="GridCell.Tab.0.center/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576017649464" />
     <state width="1550" height="282" key="GridCell.Tab.0.center/0.28.1600.872@0.28.1600.872" timestamp="1575217455163" />
-    <state width="1550" height="282" key="GridCell.Tab.0.left" timestamp="1575217455163">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="3770" height="598" key="GridCell.Tab.0.left" timestamp="1576017649463">
+      <screen x="0" y="0" width="3840" height="2130" />
     </state>
+    <state width="3770" height="598" key="GridCell.Tab.0.left/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576017649463" />
     <state width="1550" height="282" key="GridCell.Tab.0.left/0.28.1600.872@0.28.1600.872" timestamp="1575217455163" />
-    <state width="1550" height="282" key="GridCell.Tab.0.right" timestamp="1575217455164">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state width="3770" height="598" key="GridCell.Tab.0.right" timestamp="1576017649464">
+      <screen x="0" y="0" width="3840" height="2130" />
     </state>
+    <state width="3770" height="598" key="GridCell.Tab.0.right/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576017649464" />
     <state width="1550" height="282" key="GridCell.Tab.0.right/0.28.1600.872@0.28.1600.872" timestamp="1575217455164" />
-    <state x="464" y="209" width="672" height="678" key="run.anything.popup" timestamp="1575217302044">
-      <screen x="0" y="28" width="1600" height="872" />
+    <state x="1342" y="474" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1576016901191">
+      <screen x="0" y="0" width="3840" height="2130" />
     </state>
+    <state x="1342" y="474" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576016901191" />
+    <state width="1376" height="510" key="javadoc.popup.new" timestamp="1576017660726">
+      <screen x="0" y="0" width="3840" height="2130" />
+    </state>
+    <state width="1376" height="510" key="javadoc.popup.new/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576017660726" />
+    <state x="1114" y="442" width="1613" height="1657" key="run.anything.popup" timestamp="1576017513239">
+      <screen x="0" y="0" width="3840" height="2130" />
+    </state>
+    <state x="1114" y="442" width="1613" height="1657" key="run.anything.popup/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576017513239" />
     <state x="464" y="209" width="672" height="678" key="run.anything.popup/0.28.1600.872@0.28.1600.872" timestamp="1575217302044" />
+    <state x="1413" y="484" width="1009" height="1470" key="search.everywhere.popup" timestamp="1576014186869">
+      <screen x="0" y="0" width="3840" height="2130" />
+    </state>
+    <state x="1413" y="484" width="1009" height="1470" key="search.everywhere.popup/0.0.3840.2130/3840.36.1920.1200@0.0.3840.2130" timestamp="1576014186869" />
   </component>
   <component name="masterDetails">
     <states>
