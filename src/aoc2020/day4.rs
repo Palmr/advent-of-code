@@ -1,5 +1,3 @@
-use regex::Regex;
-
 /// --- Day 4: Passport Processing ---
 ///
 /// You arrive at the airport only to realize that you grabbed your North Pole Credentials instead
@@ -134,6 +132,15 @@ use regex::Regex;
 /// Count the number of valid passports - those that have all required fields and valid values.
 /// Continue to treat cid as optional. In your batch file, how many passports are valid?
 ///
+use lazy_static::lazy_static;
+use regex::Regex;
+
+lazy_static! {
+    static ref RE_FIELD: Regex = Regex::new(r"^([a-z]+):(.+)$").unwrap();
+    static ref RE_HGT: Regex = Regex::new(r"^([0-9]+)(cm|in)$").unwrap();
+    static ref RE_PID: Regex = Regex::new(r"^[0-9]{9}$").unwrap();
+    static ref RE_HCL: Regex = Regex::new(r"^#[0-9a-f]{6}$").unwrap();
+}
 
 struct Passport {
     pub byr: Option<String>,
@@ -147,19 +154,6 @@ struct Passport {
 }
 
 impl Passport {
-    pub fn new() -> Passport {
-        Passport {
-            byr: None,
-            iyr: None,
-            eyr: None,
-            hgt: None,
-            hcl: None,
-            ecl: None,
-            pid: None,
-            cid: None,
-        }
-    }
-
     pub fn simple_validation(passport: &Passport) -> bool {
         passport.byr.is_some()
             && passport.iyr.is_some()
@@ -228,11 +222,10 @@ impl Passport {
 
     // hgt (Height) - a number followed by either cm or in:
     fn validate_hgt(&self) -> bool {
-        let re_field = Regex::new(r"^([0-9]+)(cm|in)$").unwrap();
         self.hgt
             .as_ref()
             .map(|hgt| {
-                let captures = re_field.captures(hgt.as_str());
+                let captures = RE_HGT.captures(hgt.as_str());
                 match captures {
                     None => false,
                     Some(captures) => {
@@ -254,10 +247,9 @@ impl Passport {
 
     // hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
     fn validate_hcl(&self) -> bool {
-        let re_field = Regex::new(r"^#[0-9a-f]{6}$").unwrap();
         self.hcl
             .as_ref()
-            .map(|hcl| re_field.is_match(hcl.as_str()))
+            .map(|hcl| RE_HCL.is_match(hcl.as_str()))
             .unwrap_or(false)
     }
 
@@ -271,10 +263,9 @@ impl Passport {
 
     // pid (Passport ID) - a nine-digit number, including leading zeroes.
     fn validate_pid(&self) -> bool {
-        let re_field = Regex::new(r"^[0-9]{9}$").unwrap();
         self.pid
             .as_ref()
-            .map(|pid| re_field.is_match(pid.as_str()))
+            .map(|pid| RE_PID.is_match(pid.as_str()))
             .unwrap_or(false)
     }
 
@@ -288,10 +279,17 @@ fn validate_passports<F>(input: &[String], validation_function: F) -> usize
 where
     F: Fn(&Passport) -> bool,
 {
-    let re_field = Regex::new(r"^([a-z]+):(.+)$").unwrap();
-
     let mut passport_list: Vec<bool> = Vec::new();
-    let mut passport = Passport::new();
+    let mut passport = Passport {
+        byr: None,
+        iyr: None,
+        eyr: None,
+        hgt: None,
+        hcl: None,
+        ecl: None,
+        pid: None,
+        cid: None,
+    };
 
     for line in input {
         if line.is_empty() {
@@ -299,11 +297,11 @@ where
             passport.reset();
         } else {
             line.split(' ').for_each(|field| {
-                let field_parts = re_field.captures(field).unwrap();
-                let field_name = field_parts[1].to_string();
-                let field_value = field_parts[2].to_string();
+                let field_parts = RE_FIELD.captures(field).unwrap();
+                let field_name = &field_parts[1];
+                let field_value = field_parts[2].to_owned();
 
-                match field_name.as_str() {
+                match field_name {
                     "byr" => passport.byr = Some(field_value),
                     "iyr" => passport.iyr = Some(field_value),
                     "eyr" => passport.eyr = Some(field_value),

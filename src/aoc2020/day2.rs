@@ -1,5 +1,3 @@
-use regex::Regex;
-
 /// --- Day 2: Password Philosophy ---
 ///
 /// Your flight departs in a few days from the coastal airport; the easiest way down to the coast
@@ -51,11 +49,15 @@ use regex::Regex;
 ///     2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.
 ///
 /// How many passwords are valid according to the new interpretation of the policies?
+use lazy_static::lazy_static;
+use regex::Regex;
+
+lazy_static! {
+    static ref RE_PASSWORD_RULE: Regex = Regex::new(r"^(\d+)-(\d+) ([a-z]): (.+)$").unwrap();
+}
 
 fn split_input(input: &str) -> (usize, usize, char, String) {
-    let re = Regex::new(r"^(\d+)-(\d+) ([a-z]): (.+)$").unwrap();
-
-    let chunks = re.captures(input).unwrap();
+    let chunks = RE_PASSWORD_RULE.captures(input).unwrap();
     let rule1: usize = chunks[1].parse().unwrap();
     let rule2: usize = chunks[2].parse().unwrap();
     let char_test: char = chunks[3].parse().unwrap();
