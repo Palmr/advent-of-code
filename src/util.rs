@@ -11,6 +11,14 @@ pub fn read_file_input(path: &str) -> Vec<String> {
         .collect()
 }
 
+pub fn read_file_input_incl_blanks(path: &str) -> Vec<String> {
+    let f = File::open(path).unwrap();
+    let file = BufReader::new(&f);
+    file.lines()
+        .map(|l| l.unwrap().trim().to_string())
+        .collect()
+}
+
 pub fn parse_int_csv(integer_csv: &str) -> Vec<isize> {
     integer_csv.split(',').map(|i| i.parse().unwrap()).collect()
 }
