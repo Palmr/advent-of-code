@@ -6,3 +6,4 @@ authors = ["palmern <palmern@lmax.com>"]
 [dependencies]
 regex = "1"
 lazy_static = "1.4.0"
+chrono = "0.4"
