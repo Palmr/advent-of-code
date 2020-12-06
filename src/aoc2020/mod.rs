@@ -46,7 +46,11 @@ pub fn aoc2020() {
 
     println!(
         "\tDay 6: Part One={}, Part Two={}",
-        day6::solve_part_one(&util::read_file_input_incl_blanks("resources/2020/day6.txt")),
-        day6::solve_part_two(&util::read_file_input_incl_blanks("resources/2020/day6.txt")),
+        day6::solve_part_one(&util::read_file_input_incl_blanks(
+            "resources/2020/day6.txt"
+        )),
+        day6::solve_part_two(&util::read_file_input_incl_blanks(
+            "resources/2020/day6.txt"
+        )),
     );
 }

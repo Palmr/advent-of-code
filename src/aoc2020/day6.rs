@@ -1,4 +1,4 @@
-use std::collections::{HashSet, HashMap};
+use std::collections::{HashMap, HashSet};
 
 /// --- Day 6: Custom Customs ---
 ///
@@ -101,7 +101,9 @@ pub fn solve_part_one(input: &[String]) -> usize {
             answers_counts.push(answers.len());
             answers.clear();
         } else {
-            line.chars().for_each(|c| {answers.insert(c);});
+            line.chars().for_each(|c| {
+                answers.insert(c);
+            });
         }
     }
     answers_counts.push(answers.len());
@@ -110,7 +112,6 @@ pub fn solve_part_one(input: &[String]) -> usize {
 }
 
 pub fn solve_part_two(input: &[String]) -> usize {
-
     let mut answers_counts = Vec::new();
 
     let mut answers: HashMap<char, usize> = HashMap::new();
@@ -118,18 +119,28 @@ pub fn solve_part_two(input: &[String]) -> usize {
 
     for line in input {
         if line.is_empty() {
-            answers_counts.push(answers.values().filter(|&v| v == &group_people_count).count());
+            answers_counts.push(
+                answers
+                    .values()
+                    .filter(|&v| v == &group_people_count)
+                    .count(),
+            );
             answers.clear();
             group_people_count = 0;
         } else {
             line.chars().for_each(|c| {
-                let previous_count = answers.get(&c).unwrap_or(&0);
-                answers.insert(c, previous_count + 1);
+                let next_count = answers.get(&c).map(|v| v + 1).unwrap_or(1);
+                answers.insert(c, next_count);
             });
             group_people_count += 1;
         }
     }
-    answers_counts.push(answers.values().filter(|&v| v == &group_people_count).count());
+    answers_counts.push(
+        answers
+            .values()
+            .filter(|&v| v == &group_people_count)
+            .count(),
+    );
 
     answers_counts.iter().sum()
 }
