@@ -27,4 +27,5 @@ fn examples_part_two() {
             "VAL_1".to_string(),
             "VAL_2".to_string(),
         ])
-    );}
+    );
+}
