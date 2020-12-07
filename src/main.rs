@@ -1,5 +1,6 @@
 extern crate chrono;
 extern crate lazy_static;
+extern crate nom;
 extern crate regex;
 
 use chrono::{Datelike, Utc};

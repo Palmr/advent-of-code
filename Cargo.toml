@@ -7,3 +7,4 @@ authors = ["palmern <palmern@lmax.com>"]
 regex = "1"
 lazy_static = "1.4.0"
 chrono = "0.4"
+nom = "6"

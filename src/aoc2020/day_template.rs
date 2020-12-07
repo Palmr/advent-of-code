@@ -23,7 +23,7 @@ fn examples_part_one() {
 fn examples_part_two() {
     assert_eq!(
         1,
-        solve_part_one(&[
+        solve_part_two(&[
             "VAL_1".to_string(),
             "VAL_2".to_string(),
         ])
