@@ -205,7 +205,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
     while !parent_bags.is_empty() {
         let (multiplier, parent_name) = parent_bags.pop().unwrap();
         let size = bag_contain_count_map.get(parent_name).unwrap();
-        println!("{}: {} x {}", parent_name, multiplier, size);
+        // println!("{}: {} x {}", parent_name, multiplier, size);
 
         contained_bag_count += multiplier * size;
 
