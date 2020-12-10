@@ -8,6 +8,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 pub fn aoc2020() {
     println!("Advent of Code 2020");
@@ -66,5 +67,11 @@ pub fn aoc2020() {
         "\tDay 8: Part One={}, Part Two={}",
         day8::solve_part_one(&util::read_file_input("resources/2020/day8.txt")),
         day8::solve_part_two(&util::read_file_input("resources/2020/day8.txt")),
+    );
+
+    println!(
+        "\tDay 9: Part One={}, Part Two={}",
+        day9::solve_part_one(&util::read_file_input("resources/2020/day9.txt")),
+        day9::solve_part_two(&util::read_file_input("resources/2020/day9.txt")),
     );
 }
