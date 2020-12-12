@@ -133,10 +133,8 @@ pub fn solve_part_two(input: &[String]) -> usize {
         .collect();
     seat_ids.sort_unstable();
 
-    for idx in 0..seat_ids.len() - 1 {
-        let seat_id = seat_ids[idx];
+    for (seat_id, next_seat_id) in seat_ids.windows(2).map(|window| (window[0], window[1])) {
         let next_expected_seat_id = seat_id + 1;
-        let next_seat_id = seat_ids[idx + 1];
         if next_expected_seat_id != next_seat_id {
             return next_expected_seat_id;
         }
