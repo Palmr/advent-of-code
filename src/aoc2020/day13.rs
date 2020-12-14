@@ -149,9 +149,8 @@ pub fn solve_part_one(input: &[String]) -> usize {
     let busses: Vec<usize> = input[1]
         .split(',')
         .into_iter()
-        .map(|id| id.parse::<usize>())
-        .filter(|id| id.is_ok())
-        .map(|id| id.ok().unwrap())
+        .filter(|c| c != &"x")
+        .map(|id| id.parse::<usize>().unwrap())
         .collect();
 
     let mut bus_timings: Vec<(&usize, usize)> = busses
@@ -167,8 +166,26 @@ pub fn solve_part_one(input: &[String]) -> usize {
     bus_timings[0].0 * bus_timings[0].1
 }
 
-pub fn solve_part_two(_input: &[String]) -> usize {
-    0
+pub fn solve_part_two(input: &[String]) -> usize {
+    let busses: Vec<(usize, usize)> = input[1]
+        .split(',')
+        .into_iter()
+        .enumerate()
+        .filter(|(_, c)| c != &"x")
+        .map(|(idx, bus_id)| (idx, bus_id.parse::<usize>().unwrap()))
+        .collect();
+
+    let mut t = 0;
+    let mut step = busses[0].1;
+
+    for (idx, bus_id) in busses.iter().skip(1) {
+        while (t + idx) % bus_id != 0 {
+            t += step;
+        }
+        step *= bus_id;
+    }
+
+    t
 }
 
 #[test]
@@ -182,7 +199,27 @@ fn examples_part_one() {
 #[test]
 fn examples_part_two() {
     assert_eq!(
-        1,
-        solve_part_two(&["VAL_1".to_string(), "VAL_2".to_string(),])
+        1068781,
+        solve_part_two(&["0".to_string(), "7,13,x,x,59,x,31,19".to_string(),])
+    );
+    assert_eq!(
+        3417,
+        solve_part_two(&["0".to_string(), "17,x,13,19".to_string(),])
+    );
+    assert_eq!(
+        754018,
+        solve_part_two(&["0".to_string(), "67,7,59,61".to_string(),])
+    );
+    assert_eq!(
+        779210,
+        solve_part_two(&["0".to_string(), "67,x,7,59,61".to_string(),])
+    );
+    assert_eq!(
+        1261476,
+        solve_part_two(&["0".to_string(), "67,7,x,59,61".to_string(),])
+    );
+    assert_eq!(
+        1202161486,
+        solve_part_two(&["0".to_string(), "1789,37,47,1889".to_string(),])
     );
 }
