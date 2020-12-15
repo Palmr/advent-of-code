@@ -6,6 +6,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day15;
 mod day2;
 mod day3;
 mod day4;
@@ -108,5 +109,11 @@ pub fn aoc2020() {
         "\tDay 14: Part One={}, Part Two={}",
         day14::solve_part_one(&util::read_file_input("resources/2020/day14.txt")),
         day14::solve_part_two(&util::read_file_input("resources/2020/day14.txt")),
+    );
+
+    println!(
+        "\tDay 15: Part One={}, Part Two={}",
+        day15::solve_part_one(&util::read_file_input("resources/2020/day15.txt")),
+        day15::solve_part_two(&util::read_file_input("resources/2020/day15.txt")),
     );
 }
