@@ -23,7 +23,7 @@ impl Move {
 }
 
 fn parse_wire(input: &str) -> Vec<Move> {
-    input.split(',').map(|e| Move::parse(&e)).collect()
+    input.split(',').map(|e| Move::parse(e)).collect()
 }
 
 #[derive(Debug)]

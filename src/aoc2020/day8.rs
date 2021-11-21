@@ -128,6 +128,7 @@ use std::ops::Neg;
 /// Fix the program so that it terminates normally by changing exactly one `jmp` (to `nop`) or `nop`
 /// (to `jmp`). What is the value of the accumulator after the program terminates?
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum INSTRUCTION {
     NOP(isize),
@@ -262,8 +263,8 @@ pub fn solve_part_two(input: &[String]) -> isize {
 
     let mut console = GameConsole::new(instructions);
     let (finished_successfully, potential_patches) = console.run();
-    assert_eq!(
-        false, finished_successfully,
+    assert!(
+        !finished_successfully,
         "The first run should not finish successfully"
     );
 

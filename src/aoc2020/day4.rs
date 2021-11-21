@@ -195,7 +195,7 @@ impl Passport {
             .map(|b| b.parse::<i32>().unwrap_or(-1))
             .unwrap_or(-1);
 
-        byr >= 1920 && byr <= 2002
+        (1920..=2002).contains(&byr)
     }
 
     // iyr (Issue Year) - four digits; at least 2010 and at most 2020.
@@ -206,7 +206,7 @@ impl Passport {
             .map(|b| b.parse::<i32>().unwrap_or(-1))
             .unwrap_or(-1);
 
-        iyr >= 2010 && iyr <= 2020
+        (2010..=2020).contains(&iyr)
     }
 
     // eyr (Expiration Year) - four digits; at least 2020 and at most 2030.
@@ -217,7 +217,7 @@ impl Passport {
             .map(|b| b.parse::<i32>().unwrap_or(-1))
             .unwrap_or(-1);
 
-        eyr >= 2020 && eyr <= 2030
+        (2020..=2030).contains(&eyr)
     }
 
     // hgt (Height) - a number followed by either cm or in:
@@ -235,8 +235,8 @@ impl Passport {
                         //     If cm, the number must be at least 150 and at most 193.
                         //     If in, the number must be at least 59 and at most 76.
                         match unit {
-                            "cm" => height >= 150 && height <= 193,
-                            "in" => height >= 59 && height <= 76,
+                            "cm" => (150..=193).contains(&height),
+                            "in" => (59..=76).contains(&height),
                             _ => panic!("Unrecognised height unit: {}", unit),
                         }
                     }

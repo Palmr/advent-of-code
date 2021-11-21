@@ -68,7 +68,7 @@ fn parse_input(input: &[String]) -> Vec<isize> {
 }
 
 fn calculate_fuel(mass: isize) -> isize {
-    ((mass as f64 / 3f64).floor() as isize - 2 as isize).max(0)
+    ((mass as f64 / 3f64).floor() as isize - 2_isize).max(0)
 }
 
 pub fn solve_part_one(input: &[String]) -> isize {

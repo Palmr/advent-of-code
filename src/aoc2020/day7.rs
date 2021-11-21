@@ -215,7 +215,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
             .children
             .iter()
             .for_each(|c| {
-                parent_bags.push((multiplier * c.count, &c.bag_name.as_str()));
+                parent_bags.push((multiplier * c.count, c.bag_name.as_str()));
             });
     }
 
