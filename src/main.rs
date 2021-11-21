@@ -10,6 +10,7 @@ mod aoc2017;
 mod aoc2018;
 mod aoc2019;
 mod aoc2020;
+mod aoc2021;
 mod util;
 
 fn main() {
@@ -23,6 +24,7 @@ fn main() {
         2018 => aoc2018::aoc2018(),
         2019 => aoc2019::aoc2019(),
         2020 => aoc2020::aoc2020(),
+        2021 => aoc2021::aoc2021(),
         _ => panic!("No advent of code solutions for {}", year),
     }
 }
