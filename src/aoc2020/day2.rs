@@ -90,7 +90,7 @@ pub fn solve_part_one(input: &[String]) -> usize {
         .iter()
         .map(String::as_str)
         .map(split_input)
-        .filter(|split| is_password_valid_policy1(split))
+        .filter(is_password_valid_policy1)
         .count()
 }
 
@@ -99,7 +99,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
         .iter()
         .map(String::as_str)
         .map(split_input)
-        .filter(|split| is_password_valid_policy2(split))
+        .filter(is_password_valid_policy2)
         .count()
 }
 

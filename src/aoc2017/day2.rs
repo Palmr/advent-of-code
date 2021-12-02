@@ -52,7 +52,7 @@ where
 {
     spreadsheet
         .lines()
-        .map(|row| split_row(row))
+        .map(split_row)
         .map(|row_vec| row_checksum_function(&row_vec))
         //        .inspect(|z| println!("row chksum: {}", z))
         .sum()
