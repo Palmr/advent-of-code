@@ -2,6 +2,7 @@ use util;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 pub fn aoc2021() {
     println!("Advent of Code 2021");
@@ -22,5 +23,11 @@ pub fn aoc2021() {
         "\tDay 3: Part One={}, Part Two={}",
         day3::solve_part_one(&util::read_file_input("resources/2021/day3.txt")),
         day3::solve_part_two(&util::read_file_input("resources/2021/day3.txt")),
+    );
+
+    println!(
+        "\tDay 4: Part One={}, Part Two={}",
+        day4::solve_part_one(&util::read_file_input("resources/2021/day4.txt")),
+        day4::solve_part_two(&util::read_file_input("resources/2021/day4.txt")),
     );
 }
