@@ -4,10 +4,6 @@ pub fn solve_part_one(_input: &[String]) -> usize {
     0
 }
 
-pub fn solve_part_two(_input: &[String]) -> usize {
-    0
-}
-
 #[test]
 fn examples_part_one() {
     assert_eq!(
@@ -17,6 +13,10 @@ fn examples_part_one() {
             "VAL_2".to_string(),
         ])
     );
+}
+
+pub fn solve_part_two(_input: &[String]) -> usize {
+    0
 }
 
 #[test]

@@ -145,6 +145,27 @@ pub fn solve_part_one(input: &[String]) -> usize {
     gamma * epsilon
 }
 
+#[test]
+fn examples_part_one() {
+    assert_eq!(
+        198,
+        solve_part_one(&[
+            "00100".to_string(),
+            "11110".to_string(),
+            "10110".to_string(),
+            "10111".to_string(),
+            "10101".to_string(),
+            "01111".to_string(),
+            "00111".to_string(),
+            "11100".to_string(),
+            "10000".to_string(),
+            "11001".to_string(),
+            "00010".to_string(),
+            "01010".to_string(),
+        ])
+    );
+}
+
 pub fn solve_part_two(input: &[String]) -> usize {
     let oxygen = find_rating_in_report(input, |count_of_bits_at_index, threshold| {
         count_of_bits_at_index >= threshold
@@ -172,34 +193,14 @@ where
                         .count(),
                     (matching_inputs.len() + 1) / 2,
                 );
-                matching_inputs
-                    .retain(|&matching_input| (matching_input & 1 << bit_index > 0) == filter_for_ones);
+                matching_inputs.retain(|&matching_input| {
+                    (matching_input & 1 << bit_index > 0) == filter_for_ones
+                });
             }
             matching_inputs.last().copied()
         })
         .last()
         .unwrap()
-}
-
-#[test]
-fn examples_part_one() {
-    assert_eq!(
-        198,
-        solve_part_one(&[
-            "00100".to_string(),
-            "11110".to_string(),
-            "10110".to_string(),
-            "10111".to_string(),
-            "10101".to_string(),
-            "01111".to_string(),
-            "00111".to_string(),
-            "11100".to_string(),
-            "10000".to_string(),
-            "11001".to_string(),
-            "00010".to_string(),
-            "01010".to_string(),
-        ])
-    );
 }
 
 #[test]
