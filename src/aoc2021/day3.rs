@@ -165,15 +165,15 @@ where
         .rev()
         .scan(parse_inputs(input), |matching_inputs, bit_index| {
             if matching_inputs.len() > 1 {
-                let flag = bit_count_test(
+                let filter_for_ones = bit_count_test(
                     matching_inputs
                         .iter()
-                        .filter(|&n| n & 1 << bit_index > 0)
+                        .filter(|&matching_input| matching_input & 1 << bit_index > 0)
                         .count(),
                     (matching_inputs.len() + 1) / 2,
                 );
                 matching_inputs
-                    .retain(|&matching_input| (matching_input & 1 << bit_index > 0) == flag);
+                    .retain(|&matching_input| (matching_input & 1 << bit_index > 0) == filter_for_ones);
             }
             matching_inputs.last().copied()
         })
