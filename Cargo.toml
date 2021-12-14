@@ -1,7 +1,8 @@
 [package]
 name = "advent-of-code"
+description = "Advent of code solutions, not representative of my usual coding standards, honest"
 version = "0.1.0"
-authors = ["palmern <palmern@lmax.com>"]
+authors = ["Nick Palmer <nick@palmr.co.uk>"]
 
 [dependencies]
 regex = "1"
