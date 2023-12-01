@@ -130,3 +130,15 @@ fn examples_part_two() {
         ])
     );
 }
+
+#[test]
+fn word_overlaps() {
+    assert_eq!(21, solve_part_two(&["twone".to_string()]));
+    assert_eq!(82, solve_part_two(&["eightwo".to_string()]));
+    assert_eq!(83, solve_part_two(&["eighthree".to_string()]));
+    assert_eq!(18, solve_part_two(&["oneight".to_string()]));
+    assert_eq!(38, solve_part_two(&["threeight".to_string()]));
+    assert_eq!(58, solve_part_two(&["fiveight".to_string()]));
+    assert_eq!(98, solve_part_two(&["nineight".to_string()]));
+    assert_eq!(79, solve_part_two(&["sevenine".to_string()]));
+}
