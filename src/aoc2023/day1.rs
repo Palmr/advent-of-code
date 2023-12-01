@@ -46,9 +46,9 @@ use aho_corasick::AhoCorasick;
 /// What is the sum of all of the calibration values?
 ///
 
-
 pub fn solve_part_one(input: &[String]) -> usize {
-    input.iter()
+    input
+        .iter()
         .map(|l| {
             let first = l.find(char::is_numeric).unwrap();
             let last = l.rfind(char::is_numeric).unwrap();
@@ -83,14 +83,23 @@ pub fn solve_part_two(input: &[String]) -> usize {
     digits_lookup.insert("8", 8);
     digits_lookup.insert("9", 9);
 
-    let patterns = &["one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    let patterns = &[
+        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4",
+        "5", "6", "7", "8", "9",
+    ];
     let ac = AhoCorasick::new(patterns).unwrap();
 
-    input.iter()
+    input
+        .iter()
         .map(|l| {
             let mut iter = ac.find_overlapping_iter(l);
-            let first = iter.nth(0).map(|m| *digits_lookup.get(patterns[m.pattern().as_usize()]).unwrap()).unwrap();
-            let last = iter.last().map_or(first, |m| *digits_lookup.get(patterns[m.pattern().as_usize()]).unwrap());
+            let first = iter
+                .nth(0)
+                .map(|m| *digits_lookup.get(patterns[m.pattern().as_usize()]).unwrap())
+                .unwrap();
+            let last = iter.last().map_or(first, |m| {
+                *digits_lookup.get(patterns[m.pattern().as_usize()]).unwrap()
+            });
             first * 10 + last
         })
         .sum()

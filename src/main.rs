@@ -1,8 +1,8 @@
+extern crate aho_corasick;
 extern crate chrono;
 extern crate lazy_static;
 extern crate nom;
 extern crate regex;
-extern crate aho_corasick;
 
 use chrono::{Datelike, Utc};
 use std::env;
