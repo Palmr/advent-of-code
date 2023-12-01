@@ -83,11 +83,8 @@ pub fn solve_part_two(input: &[String]) -> usize {
     digits_lookup.insert("8", 8);
     digits_lookup.insert("9", 9);
 
-    let patterns = &[
-        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "1", "2", "3", "4",
-        "5", "6", "7", "8", "9",
-    ];
-    let ac = AhoCorasick::new(patterns).unwrap();
+    let patterns: Vec<_> = digits_lookup.keys().collect();
+    let ac = AhoCorasick::new(patterns.clone()).unwrap();
 
     input
         .iter()
