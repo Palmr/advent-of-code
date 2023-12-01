@@ -75,8 +75,7 @@ pub fn solve_part_two(spreadsheet: &str) -> i32 {
         let mut search_row = row.clone();
         search_row.sort_unstable();
 
-        while !search_row.is_empty() {
-            let number_1 = search_row.pop().unwrap();
+        while let Some(number_1) = search_row.pop() {
             let number_2 = search_row
                 .iter()
                 //                .inspect(|c| println!("{} % {} == {}", c, number_1, number_1 % *c ))

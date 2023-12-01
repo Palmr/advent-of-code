@@ -46,6 +46,10 @@ use aho_corasick::AhoCorasick;
 /// What is the sum of all of the calibration values?
 ///
 
+fn char_to_int(char: char) -> usize {
+    char as usize - '0' as usize
+}
+
 pub fn solve_part_one(input: &[String]) -> usize {
     input
         .iter()
@@ -56,10 +60,6 @@ pub fn solve_part_one(input: &[String]) -> usize {
             char_to_int(chars[first]) * 10 + char_to_int(chars[last])
         })
         .sum()
-}
-
-fn char_to_int(char: char) -> usize {
-    char as usize - '0' as usize
 }
 
 pub fn solve_part_two(input: &[String]) -> usize {
@@ -94,7 +94,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
         .map(|l| {
             let mut iter = ac.find_overlapping_iter(l);
             let first = iter
-                .nth(0)
+                .next()
                 .map(|m| *digits_lookup.get(patterns[m.pattern().as_usize()]).unwrap())
                 .unwrap();
             let last = iter.last().map_or(first, |m| {

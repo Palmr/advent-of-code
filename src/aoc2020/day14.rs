@@ -157,11 +157,11 @@ struct ValueMask {
 
 impl ValueMask {
     fn new(mask: &str) -> ValueMask {
-        let and_string = mask.replace("X", "1");
+        let and_string = mask.replace('X', "1");
         let and_u64 = u64::from_str_radix(and_string.as_str(), 2).unwrap();
         let and_u36 = and_u64 & MASK_36;
 
-        let or_string = mask.replace("X", "0");
+        let or_string = mask.replace('X', "0");
         let or_u64 = u64::from_str_radix(or_string.as_str(), 2).unwrap();
         let or_u36 = or_u64 & MASK_36;
 
@@ -215,7 +215,7 @@ pub fn solve_part_one(input: &[String]) -> u64 {
         }
         _ => panic!("Expecting `mask` and `mem` only"),
     });
-    memory.values().into_iter().sum()
+    memory.values().sum()
 }
 
 #[test]
@@ -247,12 +247,12 @@ impl AddressMask {
             .collect();
 
         // And mask to keep all bits but the floating
-        let and_string = mask.replace("0", "1").replace("X", "0");
+        let and_string = mask.replace('0', "1").replace('X', "0");
         let and_u64 = u64::from_str_radix(and_string.as_str(), 2).unwrap();
         let and_u36 = and_u64 & MASK_36;
 
         // Or mask to or mask ignoring floating
-        let or_string = mask.replace("X", "0");
+        let or_string = mask.replace('X', "0");
         let or_u64 = u64::from_str_radix(or_string.as_str(), 2).unwrap();
         let or_u36 = or_u64 & MASK_36;
 
@@ -325,7 +325,7 @@ pub fn solve_part_two(input: &[String]) -> u64 {
         }
         _ => panic!("Expecting `mask` and `mem` only"),
     });
-    memory.values().into_iter().sum()
+    memory.values().sum()
 }
 
 #[test]

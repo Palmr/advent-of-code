@@ -148,7 +148,6 @@ pub fn solve_part_one(input: &[String]) -> usize {
     let earliest_departure = input[0].parse::<usize>().unwrap();
     let busses: Vec<usize> = input[1]
         .split(',')
-        .into_iter()
         .filter(|c| c != &"x")
         .map(|id| id.parse::<usize>().unwrap())
         .collect();
@@ -169,7 +168,6 @@ pub fn solve_part_one(input: &[String]) -> usize {
 pub fn solve_part_two(input: &[String]) -> usize {
     let busses: Vec<(usize, usize)> = input[1]
         .split(',')
-        .into_iter()
         .enumerate()
         .filter(|(_, c)| c != &"x")
         .map(|(idx, bus_id)| (idx, bus_id.parse::<usize>().unwrap()))

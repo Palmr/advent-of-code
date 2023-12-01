@@ -207,7 +207,6 @@ fn parse_data(input: &[String]) -> (Vec<Rule>, Vec<usize>, Vec<Vec<usize>>) {
         .next()
         .unwrap()
         .split(',')
-        .into_iter()
         .map(|f| f.parse::<usize>().unwrap())
         .collect::<Vec<usize>>();
 
@@ -228,7 +227,6 @@ fn parse_data(input: &[String]) -> (Vec<Rule>, Vec<usize>, Vec<Vec<usize>>) {
         .cloned()
         .map(|l| {
             l.split(',')
-                .into_iter()
                 .map(|f| f.parse::<usize>().unwrap())
                 .collect::<Vec<usize>>()
         })

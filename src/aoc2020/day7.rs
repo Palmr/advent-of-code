@@ -202,8 +202,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
     let mut contained_bag_count = 0;
 
     let mut parent_bags: Vec<(usize, &str)> = vec![(1, our_bag)];
-    while !parent_bags.is_empty() {
-        let (multiplier, parent_name) = parent_bags.pop().unwrap();
+    while let Some((multiplier, parent_name)) = parent_bags.pop() {
         let size = bag_contain_count_map.get(parent_name).unwrap();
         // println!("{}: {} x {}", parent_name, multiplier, size);
 

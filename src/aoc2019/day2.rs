@@ -1,22 +1,22 @@
 use util::parse_int_csv;
 
-pub fn part_1_mangling(input_codes: &mut Vec<isize>) {
+pub fn part_1_mangling(input_codes: &mut [isize]) {
     input_codes[1] = 12;
     input_codes[2] = 2;
 }
 
 pub fn solve_part_one<F>(input: &[String], mangle: F) -> isize
 where
-    F: Fn(&mut Vec<isize>),
+    F: Fn(&mut [isize]),
 {
-    let mut int_codes = parse_int_csv(input.get(0).unwrap());
+    let mut int_codes = parse_int_csv(input.first().unwrap());
 
     run_vm(&mut int_codes, mangle)
 }
 
-fn run_vm<F>(int_codes: &mut Vec<isize>, mangle: F) -> isize
+fn run_vm<F>(int_codes: &mut [isize], mangle: F) -> isize
 where
-    F: Fn(&mut Vec<isize>),
+    F: Fn(&mut [isize]),
 {
     mangle(int_codes);
 
@@ -62,7 +62,7 @@ where
 }
 
 pub fn solve_part_two(input: &[String]) -> isize {
-    let csv_intcode = input.get(0).unwrap();
+    let csv_intcode = input.first().unwrap();
     let int_codes: Vec<isize> = csv_intcode.split(',').map(|i| i.parse().unwrap()).collect();
 
     for i in 0..=99 {
@@ -84,7 +84,7 @@ pub fn solve_part_two(input: &[String]) -> isize {
 
 #[test]
 fn examples_part_one() {
-    fn no_mangle(_x: &mut Vec<isize>) {}
+    fn no_mangle(_x: &mut [isize]) {}
 
     assert_eq!(
         3500,

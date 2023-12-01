@@ -120,8 +120,8 @@ impl BingoBoard {
             Some(pos) => self.cells[pos] = Marked(number),
         };
 
-        let mut rows_marked = vec![0; 5];
-        let mut cols_marked = vec![0; 5];
+        let mut rows_marked = [0; 5];
+        let mut cols_marked = [0; 5];
         self.cells
             .iter()
             .map(|cell| match cell {

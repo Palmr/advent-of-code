@@ -226,7 +226,7 @@ fn aggregate_guard_sleeping_time(guard_logs: &[GuardLog]) -> HashMap<usize, usiz
         GuardSate::BeginShift => {}
         GuardSate::FallsAsleep => started_sleeping_minute = Some(gl.minute),
         GuardSate::WakesUp => {
-            if started_sleeping_minute == None {
+            if started_sleeping_minute.is_none() {
                 panic!(
                     "Log waking up for guard who fell asleep at unknown time? {:?}",
                     gl
@@ -296,7 +296,7 @@ pub fn solve_part_one(input: &[String]) -> usize {
             GuardSate::BeginShift => started_sleeping_minute = None,
             GuardSate::FallsAsleep => started_sleeping_minute = Some(gl.minute),
             GuardSate::WakesUp => {
-                if started_sleeping_minute == None {
+                if started_sleeping_minute.is_none() {
                     panic!(
                         "Log waking up for guard who fell asleep at unknown time? {:?}",
                         gl
@@ -329,7 +329,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
         GuardSate::BeginShift => started_sleeping_minute = None,
         GuardSate::FallsAsleep => started_sleeping_minute = Some(gl.minute),
         GuardSate::WakesUp => {
-            if started_sleeping_minute == None {
+            if started_sleeping_minute.is_none() {
                 panic!(
                     "Log waking up for guard who fell asleep at unknown time? {:?}",
                     gl
@@ -337,7 +337,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
             }
             let minute_slept_map = guard_minute_sleep_frequency
                 .entry(gl.guard_id.unwrap())
-                .or_insert_with(HashMap::new);
+                .or_default();
             for m in started_sleeping_minute.unwrap()..gl.minute {
                 *minute_slept_map.entry(m).or_insert(0) += 1;
             }

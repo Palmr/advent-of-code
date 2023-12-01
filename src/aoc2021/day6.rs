@@ -78,7 +78,7 @@
 /// How many lanternfish would there be after 256 days?
 
 fn simulate_fish_generations(fish_ages: Vec<usize>, generations: usize) -> usize {
-    let mut age_buckets = vec![0usize; 9];
+    let mut age_buckets = [0usize; 9];
     fish_ages.iter().for_each(|&age| age_buckets[age] += 1);
 
     for _generation in 0..generations {

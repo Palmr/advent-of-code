@@ -189,7 +189,7 @@ pub fn solve_part_one(input: &[String]) -> isize {
             {
                 // If multiple coords have the same distance it belongs to no coord
             } else {
-                let mut coord_area = coord_areas
+                let coord_area = coord_areas
                     .iter_mut()
                     .find(|ca| ca.id == min_dist.0.unwrap())
                     .unwrap();

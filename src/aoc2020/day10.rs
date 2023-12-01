@@ -228,12 +228,11 @@ fn how_many_combinations_in_slice(adapter_count: usize) -> usize {
         return 1;
     }
 
-    let possible_values = 2_usize.pow(mutable_adapter_count as u32) as usize;
+    let possible_values = 2_usize.pow(mutable_adapter_count as u32);
 
     // Only if there's 3 or more bits to toggle is there a chance of needing to ignore a 000
     if mutable_adapter_count >= 3 {
         return (0..possible_values)
-            .into_iter()
             .filter(|possible_value| {
                 // Filter out any possible value with three consecutive zeros in it
                 for shift_amount in 0..=mutable_adapter_count - 3 {

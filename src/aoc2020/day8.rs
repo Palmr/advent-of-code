@@ -225,9 +225,9 @@ impl GameConsole {
                 JMP(arg) => {
                     potential_patches.push((self.pc, NOP(*arg)));
                     if arg.is_positive() {
-                        self.pc += arg.abs() as usize;
+                        self.pc += arg.unsigned_abs();
                     } else {
-                        self.pc -= arg.abs() as usize;
+                        self.pc -= arg.unsigned_abs();
                     }
                 }
             }
@@ -286,24 +286,15 @@ pub fn solve_part_two(input: &[String]) -> isize {
 
 #[test]
 fn test_parse_isize() {
-    assert_eq!(IResult::Ok(("", 123)), parse_int("+123"));
-    assert_eq!(IResult::Ok(("", -123)), parse_int("-123"));
+    assert_eq!(Ok(("", 123)), parse_int("+123"));
+    assert_eq!(Ok(("", -123)), parse_int("-123"));
 }
 
 #[test]
 fn test_parse_instr() {
-    assert_eq!(
-        IResult::Ok(("", INSTRUCTION::NOP(0))),
-        parse_instruction("nop +0")
-    );
-    assert_eq!(
-        IResult::Ok(("", INSTRUCTION::ACC(-123))),
-        parse_instruction("acc -123")
-    );
-    assert_eq!(
-        IResult::Ok(("", INSTRUCTION::JMP(456))),
-        parse_instruction("jmp +456")
-    );
+    assert_eq!(Ok(("", NOP(0))), parse_instruction("nop +0"));
+    assert_eq!(Ok(("", ACC(-123))), parse_instruction("acc -123"));
+    assert_eq!(Ok(("", JMP(456))), parse_instruction("jmp +456"));
 }
 
 #[test]
