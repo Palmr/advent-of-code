@@ -1,6 +1,5 @@
-use std::collections::HashMap;
-
 use aho_corasick::AhoCorasick;
+use phf::phf_map;
 
 /// --- Day 1: Trebuchet?! ---
 ///
@@ -46,6 +45,27 @@ use aho_corasick::AhoCorasick;
 /// What is the sum of all of the calibration values?
 ///
 
+static DIGITS_LOOKUP: phf::Map<&'static str, usize> = phf_map! {
+    "one" => 1,
+    "two" => 2,
+    "three" => 3,
+    "four" => 4,
+    "five" => 5,
+    "six" => 6,
+    "seven" => 7,
+    "eight" => 8,
+    "nine" => 9,
+    "1" => 1,
+    "2" => 2,
+    "3" => 3,
+    "4" => 4,
+    "5" => 5,
+    "6" => 6,
+    "7" => 7,
+    "8" => 8,
+    "9" => 9,
+};
+
 fn char_to_int(char: char) -> usize {
     char as usize - '0' as usize
 }
@@ -63,27 +83,7 @@ pub fn solve_part_one(input: &[String]) -> usize {
 }
 
 pub fn solve_part_two(input: &[String]) -> usize {
-    let mut digits_lookup: HashMap<&str, usize> = HashMap::new();
-    digits_lookup.insert("one", 1);
-    digits_lookup.insert("two", 2);
-    digits_lookup.insert("three", 3);
-    digits_lookup.insert("four", 4);
-    digits_lookup.insert("five", 5);
-    digits_lookup.insert("six", 6);
-    digits_lookup.insert("seven", 7);
-    digits_lookup.insert("eight", 8);
-    digits_lookup.insert("nine", 9);
-    digits_lookup.insert("1", 1);
-    digits_lookup.insert("2", 2);
-    digits_lookup.insert("3", 3);
-    digits_lookup.insert("4", 4);
-    digits_lookup.insert("5", 5);
-    digits_lookup.insert("6", 6);
-    digits_lookup.insert("7", 7);
-    digits_lookup.insert("8", 8);
-    digits_lookup.insert("9", 9);
-
-    let patterns: Vec<_> = digits_lookup.keys().collect();
+    let patterns: Vec<_> = DIGITS_LOOKUP.keys().collect();
     let ac = AhoCorasick::new(patterns.clone()).unwrap();
 
     input
@@ -92,10 +92,10 @@ pub fn solve_part_two(input: &[String]) -> usize {
             let mut iter = ac.find_overlapping_iter(l);
             let first = iter
                 .next()
-                .map(|m| *digits_lookup.get(patterns[m.pattern().as_usize()]).unwrap())
+                .map(|m| *DIGITS_LOOKUP.get(patterns[m.pattern().as_usize()]).unwrap())
                 .unwrap();
             let last = iter.last().map_or(first, |m| {
-                *digits_lookup.get(patterns[m.pattern().as_usize()]).unwrap()
+                *DIGITS_LOOKUP.get(patterns[m.pattern().as_usize()]).unwrap()
             });
             first * 10 + last
         })

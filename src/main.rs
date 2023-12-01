@@ -3,6 +3,7 @@ extern crate chrono;
 extern crate lazy_static;
 extern crate nom;
 extern crate regex;
+extern crate phf;
 
 use chrono::{Datelike, Utc};
 use std::env;
