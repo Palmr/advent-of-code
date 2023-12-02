@@ -21,7 +21,8 @@ use nom::IResult;
 /// and your goal is to figure out information about the number of cubes.
 ///
 /// To get information, once a bag has been loaded with cubes, the Elf will reach into the bag,
-/// grab a handful of random cubes, show them to you, and then put them back in the bag. He'll do this a few times per game.
+/// grab a handful of random cubes, show them to you, and then put them back in the bag.
+/// He'll do this a few times per game.
 ///
 /// You play several games and record the information from each game (your puzzle input).
 /// Each game is listed with its ID number (like the 11 in Game 11: ...) followed by a
@@ -37,7 +38,8 @@ use nom::IResult;
 /// Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
 ///
 /// In game 1, three sets of cubes are revealed from the bag (and then put back again).
-/// The first set is 3 blue cubes and 4 red cubes; the second set is 1 red cube, 2 green cubes, and 6 blue cubes; the third set is only 2 green cubes.
+/// The first set is 3 blue cubes and 4 red cubes; the second set is 1 red cube, 2 green cubes,
+/// and 6 blue cubes; the third set is only 2 green cubes.
 ///
 /// The Elf would first like to know which games would have been possible if the bag contained
 /// only 12 red cubes, 13 green cubes, and 14 blue cubes?
@@ -94,7 +96,30 @@ struct Game {
     pub rounds: Vec<Round>,
 }
 
-fn parse_round(input: &str) -> IResult<&str, Round> {
+impl Game {
+    pub fn is_possible(&self) -> bool {
+        self.rounds.iter().all(|r| {
+            r.red.unwrap_or(0) <= 12 && r.green.unwrap_or(0) <= 13 && r.blue.unwrap_or(0) <= 14
+        })
+    }
+
+    fn fewest_cube_counts(&self) -> (usize, usize, usize) {
+        self.rounds.iter().fold((0, 0, 0), |acc, round| {
+            (
+                acc.0.max(round.red.unwrap_or(0)),
+                acc.1.max(round.green.unwrap_or(0)),
+                acc.2.max(round.blue.unwrap_or(0)),
+            )
+        })
+    }
+
+    pub fn get_power(self) -> usize {
+        let (r, g, b) = self.fewest_cube_counts();
+        r * g * b
+    }
+}
+
+fn round_parser(input: &str) -> IResult<&str, Round> {
     let (input, cubes) = separated_list0(
         tag(", "),
         separated_pair(
@@ -121,20 +146,23 @@ fn parse_round(input: &str) -> IResult<&str, Round> {
     Ok((input, round))
 }
 
-fn parse_game(input: &str) -> IResult<&str, Game> {
+fn game_parser(input: &str) -> IResult<&str, Game> {
     let (input, _) = tag("Game ")(input)?;
     let (input, id) = map_res(digit1, str::parse)(input)?;
     let (input, _) = tag(": ")(input)?;
-    let (input, rounds) = separated_list0(tag("; "), parse_round)(input)?;
+    let (input, rounds) = separated_list0(tag("; "), round_parser)(input)?;
 
     Ok((input, Game { id, rounds }))
 }
 
+fn parse_game(input: &str) -> Option<Game> {
+    game_parser(input).map(|(_, g)| g).ok()
+}
+
 #[test]
 fn test_parse_game() {
-    let (_, result) = parse_game("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green").unwrap();
     assert_eq!(
-        result,
+        parse_game("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green").unwrap(),
         Game {
             id: 1,
             rounds: vec![
@@ -157,9 +185,8 @@ fn test_parse_game() {
         }
     );
 
-    let (_, result) = parse_game("Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green").unwrap();
     assert_eq!(
-        result,
+        parse_game("Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green").unwrap(),
         Game {
             id: 5,
             rounds: vec![
@@ -182,13 +209,8 @@ pub fn solve_part_one(input: &[String]) -> usize {
     input
         .iter()
         .map(String::as_str)
-        .map(parse_game)
-        .filter_map(|res| res.map(|(_, g)| g).ok())
-        .filter(|g| {
-            g.rounds.iter().all(|r| {
-                r.red.unwrap_or(0) <= 12 && r.green.unwrap_or(0) <= 13 && r.blue.unwrap_or(0) <= 14
-            })
-        })
+        .filter_map(parse_game)
+        .filter(Game::is_possible)
         .map(|g| g.id)
         .sum()
 }
@@ -211,18 +233,8 @@ pub fn solve_part_two(input: &[String]) -> usize {
     input
         .iter()
         .map(String::as_str)
-        .map(parse_game)
-        .filter_map(|res| res.map(|(_, g)| g).ok())
-        .map(|g| {
-            g.rounds.iter().fold((0, 0, 0), |acc, round| {
-                (
-                    acc.0.max(round.red.unwrap_or(0)),
-                    acc.1.max(round.green.unwrap_or(0)),
-                    acc.2.max(round.blue.unwrap_or(0)),
-                )
-            })
-        })
-        .map(|(r, g, b)| r * g * b)
+        .filter_map(parse_game)
+        .map(Game::get_power)
         .sum()
 }
 
