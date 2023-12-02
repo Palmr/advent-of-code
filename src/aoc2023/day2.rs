@@ -157,7 +157,7 @@ fn test_parse_game() {
         }
     );
 
-    let (_, result) = parse_game( "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green").unwrap();
+    let (_, result) = parse_game("Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green").unwrap();
     assert_eq!(
         result,
         Game {
@@ -183,15 +183,12 @@ pub fn solve_part_one(input: &[String]) -> usize {
         .iter()
         .map(String::as_str)
         .map(parse_game)
-        .filter_map(|r| r.map(|(_, g)| g).ok())
+        .filter_map(|res| res.map(|(_, g)| g).ok())
         .filter(|g| {
             g.rounds.iter().all(|r| {
-                (r.red.is_none() || r.red.is_some_and(|x| x <= 12))
-                    && (r.green.is_none() || r.green.is_some_and(|x| x <= 13))
-                    && (r.blue.is_none() || r.blue.is_some_and(|x| x <= 14))
+                r.red.unwrap_or(0) <= 12 && r.green.unwrap_or(0) <= 13 && r.blue.unwrap_or(0) <= 14
             })
         })
-        // .inspect(|g| println!("Valid Game: {:?}", g))
         .map(|g| g.id)
         .sum()
 }
