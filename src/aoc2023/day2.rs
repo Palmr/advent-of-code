@@ -212,8 +212,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
         .iter()
         .map(String::as_str)
         .map(parse_game)
-        .filter_map(|r| r.map(|(_, g)| g).ok())
-        // .inspect(|g| println!("Game: {:?}", g))
+        .filter_map(|res| res.map(|(_, g)| g).ok())
         .map(|g| {
             g.rounds.iter().fold((0, 0, 0), |acc, round| {
                 (
@@ -223,9 +222,7 @@ pub fn solve_part_two(input: &[String]) -> usize {
                 )
             })
         })
-        // .inspect(|g| println!("Minimal cube set: {:?}", g))
         .map(|(r, g, b)| r * g * b)
-        // .inspect(|g| println!("Power: {:?}", g))
         .sum()
 }
 
