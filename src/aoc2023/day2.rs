@@ -95,12 +95,6 @@ struct Game {
 }
 
 fn parse_round(input: &str) -> IResult<&str, Round> {
-    let mut round = Round {
-        red: None,
-        green: None,
-        blue: None,
-    };
-
     let (input, cubes) = separated_list0(
         tag(", "),
         separated_pair(
@@ -110,12 +104,17 @@ fn parse_round(input: &str) -> IResult<&str, Round> {
         ),
     )(input)?;
 
+    let mut round = Round {
+        red: None,
+        green: None,
+        blue: None,
+    };
     cubes
         .iter()
         .for_each(|(cube_count, cube_colour)| match *cube_colour {
-            "red" => round.red = Some(round.red.unwrap_or(0) + cube_count),
-            "green" => round.green = Some(round.green.unwrap_or(0) + cube_count),
-            "blue" => round.blue = Some(round.blue.unwrap_or(0) + cube_count),
+            "red" => round.red = Some(*cube_count),
+            "green" => round.green = Some(*cube_count),
+            "blue" => round.blue = Some(*cube_count),
             _ => panic!("Unknown cube colour: {}", cube_colour),
         });
 
@@ -153,6 +152,26 @@ fn test_parse_game() {
                     red: None,
                     green: Some(2),
                     blue: None,
+                },
+            ],
+        }
+    );
+
+    let (_, result) = parse_game( "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green").unwrap();
+    assert_eq!(
+        result,
+        Game {
+            id: 5,
+            rounds: vec![
+                Round {
+                    red: Some(6),
+                    green: Some(3),
+                    blue: Some(1),
+                },
+                Round {
+                    red: Some(1),
+                    green: Some(2),
+                    blue: Some(2),
                 },
             ],
         }
